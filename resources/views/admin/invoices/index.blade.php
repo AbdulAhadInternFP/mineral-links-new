@@ -1,4 +1,4 @@
-<x-layout title="Transaction">
+<x-layout title="Transaction Details">
   <div id="reconciliation_alert"
         class="flex items-center justify-between bg-white border-l-4 border-brand-terracotta rounded-r-lg shadow-sm px-6 py-4 mb-6">
         <div class="flex items-center">

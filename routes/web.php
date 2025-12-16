@@ -31,6 +31,9 @@ Route::get('/admin/integration', function () {
 Route::get('/admin/invoices', function () {
     return view('admin.invoices.index');
 })->name('admin.invoices');
+Route::get('/admin/invoices_new', function () {
+    return view('admin.invoices.index_new');
+})->name('admin.invoices_new');
 Route::get('/admin/reports', function () {
     return view('admin.reports.index');
 })->name('admin.reports');
