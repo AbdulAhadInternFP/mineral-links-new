@@ -1,28 +1,6 @@
-<x-layout title="Transactions Details - {{ date('F Y') }}"> 
+<x-layout title="Transactions Details - {{ date('F Y') }}">
 
-    <section id="tabs_and_actions_row" class="bg-white rounded-xl shadow px-6 py-3 mb-6">
-        <div class="flex items-center justify-end">
-            <div class="flex items-center space-x-4">
-                <div class="relative">
-                    <select
-                        class="w-60 h-11 pl-4 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm appearance-none bg-white cursor-pointer">
-                        @php
-                            $currentYear = date('Y');
-                        @endphp
-                        @for ($i = $currentYear; $i >= $currentYear - 15; $i--)
-                            <option value="{{ $i }}">{{ $i }}</option>
-                        @endfor
-                    </select>
-                    <i
-                        class="fa-solid fa-chevron-down absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                </div>
-                <button id="sync-data-btn"
-                    class="bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">
-                    <i class="fa-solid fa-upload fa-fw mr-2"></i>Sync or Upload
-                </button>
-            </div>
-        </div>
-    </section>
+
 
     <section id="invoices_table_section" class="bg-white rounded-xl shadow overflow-hidden">
         <div class="overflow-x-auto">
@@ -45,45 +23,45 @@
                 </thead>
                 <tbody id="invoices-table-body" class="divide-y divide-gray-200">
                     @php
-                        $months = [];
-                        $currentMonth = (int) date('n');
-                        for ($m = 1; $m < $currentMonth; $m++) {
-                            $months[] = date('F', mktime(0, 0, 0, $m, 1));
-                        }
+                        $companies = [
+                            'CONOCOPHILLIPS CO.',
+                            'EXXON MOBIL CORP.',
+                            'CHEVRON U.S.A. INC.',
+                            'EOG RESOURCES, INC.',
+                            'PIONEER NATURAL RES.',
+                            'OCCIDENTAL PERMIAN',
+                            'DEVON ENERGY PROD.',
+                            'DIAMONDBACK E&P',
+                            'APACHE CORPORATION',
+                            'MARATHON OIL CO.',
+                        ];
+                        shuffle($companies);
                     @endphp
-
-                    @foreach ($months as $index => $month)
+                    @for ($i = 0; $i < 10; $i++)
                         @php
-                            $isComplete = $index % 2 !== 0;
-                            $status = $isComplete ? 'Complete' : 'Incomplete';
-                            $statusClass = $isComplete ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800';
-
-                            $typeText = $index % 2 === 0 ? 'Sync' : 'Upload';
-                            $typeClass =
-                                $index % 2 === 0 ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800';
+                            $customer = $companies[$i % count($companies)];
+                            $amount = rand(10000, 99999) / 100;
                         @endphp
                         <tr class="hover:bg-brand-sage/10 transition-colors">
                             <td class="px-6 py-1">
-                                <span class="text-sm font-medium text-gray-900">{{ $month }}</span>
+                                <span class="text-sm font-medium text-gray-900">{{ $customer }}</span>
                             </td>
                             <td class="px-6 py-1">
-                                <span
-                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {{ $statusClass }}">
-                                    {{ $status }}
-                                </span>
+                                <span class="text-sm font-medium text-gray-900">${{ number_format($amount, 2) }}</span>
                             </td>
                             <td class="px-6 py-1 text-center">
-                                <a href="{{ route('admin.invoice.preview') }}" class="text-gray-400 hover:text-brand-teal transition-colors">
+                                <a href="{{ route('admin.invoice.preview') }}"
+                                    class="text-gray-400 hover:text-brand-teal transition-colors">
                                     <i class="w-6 text-brand-teal fa-solid fa-eye"></i>
                                 </a>
                             </td>
                         </tr>
-                    @endforeach
+                    @endfor
                 </tbody>
             </table>
         </div>
 
-        <!-- Pagination Footer --> 
+        <!-- Pagination Footer -->
         <div class="px-6 py-1 border-t border-gray-200 flex items-center justify-between">
             <div class="flex items-center space-x-2">
                 <span class="text-sm text-gray-600">Show</span>
@@ -116,7 +94,7 @@
             </div>
         </div>
 
-      
+
     </section>
 
 </x-layout>

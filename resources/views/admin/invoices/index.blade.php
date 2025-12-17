@@ -1,4 +1,4 @@
-<x-layout title="Transactions"> 
+<x-layout title="Transactions">
 
     <section id="tabs_and_actions_row" class="bg-white rounded-xl shadow px-6 py-3 mb-6">
         <div class="flex items-center justify-end">
@@ -50,14 +50,14 @@
                     @php
                         $months = [];
                         $currentMonth = (int) date('n');
-                        for ($m = 1; $m < $currentMonth; $m++) {
+                        for ($m = 1; $m <= $currentMonth; $m++) {
                             $months[] = date('F', mktime(0, 0, 0, $m, 1));
                         }
                     @endphp
 
                     @foreach ($months as $index => $month)
                         @php
-                            $isComplete = $index % 2 !== 0;
+                            $isComplete = $month !== date('F');
                             $status = $isComplete ? 'Complete' : 'Incomplete';
                             $statusClass = $isComplete ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800';
 
@@ -82,7 +82,8 @@
                                 </span>
                             </td>
                             <td class="px-6 py-1 text-center">
-                                <a href="{{ route('admin.invoice.detail') }}" class="text-gray-400 hover:text-brand-teal transition-colors">
+                                <a href="{{ route('admin.invoice.detail') }}"
+                                    class="text-gray-400 hover:text-brand-teal transition-colors">
                                     <i class="w-6 text-brand-teal fa-solid fa-eye"></i>
                                 </a>
                             </td>
@@ -92,7 +93,7 @@
             </table>
         </div>
 
-        <!-- Pagination Footer --> 
+        <!-- Pagination Footer -->
         <div class="px-6 py-1 border-t border-gray-200 flex items-center justify-between">
             <div class="flex items-center space-x-2">
                 <span class="text-sm text-gray-600">Show</span>
@@ -125,62 +126,25 @@
             </div>
         </div>
 
-      
+
     </section>
 
 </x-layout>
 
-<div id="view-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
-    <div class="bg-white rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] w-[520px] max-h-[90vh] overflow-hidden">
-        <div class="flex items-center justify-between px-6 py-1 border-b border-gray-200">
-            <div class="flex items-center space-x-3">
-                <h3 class="text-xl font-semibold text-gray-900" id="view-modal-title">Line Item Details</h3>
-            </div>
-            <button class="modal-close text-gray-400 hover:text-gray-600 transition-colors">
-                <i class="fa-solid fa-xmark fa-lg"></i>
-            </button>
-        </div>
-        <div class="px-6 py-5 space-y-4">
-            <div class="flex items-center justify-between py-3 border-b border-gray-100">
-                <span class="text-sm font-medium text-gray-500">Invoice #</span>
-                <span class="text-sm font-semibold text-brand-teal" id="view-modal-invoice">INV-2024-001</span>
-            </div>
-            <div class="flex items-center justify-between py-3 border-b border-gray-100">
-                <span class="text-sm font-medium text-gray-500">Owner / Entity</span>
-                <span class="text-sm font-semibold text-gray-900" id="view-modal-entity">Permian Basin Energy
-                    LLC</span>
-            </div>
-            <div class="flex items-center justify-between py-3 border-b border-gray-100">
-                <span class="text-sm font-medium text-gray-500">Product</span>
-                <span class="text-sm font-semibold text-gray-900" id="view-modal-product">WTI Crude Oil</span>
-            </div>
-            <div class="flex items-center justify-between py-3 border-b border-gray-100">
-                <span class="text-sm font-medium text-gray-500">Volume</span>
-                <span class="text-sm font-mono text-gray-900" id="view-modal-volume">58.6 bbl</span>
-            </div>
-            <div class="flex items-center justify-between py-3 border-b border-gray-100">
-                <span class="text-sm font-medium text-gray-500">Amount</span>
-                <span class="text-lg font-semibold font-mono text-gray-900" id="view-modal-amount">$4,250.00</span>
-            </div>
-            <div class="flex items-center justify-between py-3">
-                <span class="text-sm font-medium text-gray-500">Status</span>
-                <span id="view-modal-status"
-                    class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-status-success text-white">Matched</span>
-            </div>
-        </div>
-        <div class="flex items-center justify-end space-x-3 px-6 py-1 bg-gray-50 border-t border-gray-200">
-            <button
-                class="modal-close px-4 py-2 text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">Close</button>
-        </div>
-    </div>
-</div>
 
-<div id="sync-upload-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
-    <div class="bg-white rounded-xl shadow-xl w-[500px] overflow-hidden">
-        <div class="flex items-center justify-between px-6 py-1 border-b border-gray-200">
-            <h3 class="text-xl font-semibold text-gray-900">Sync or upload data with {{ date('F Y') }}</h3>
-            <button class="modal-close-sync text-gray-400 hover:text-gray-600 transition-colors">
-                <i class="fa-solid fa-xmark fa-lg"></i>
+
+<div id="sync-upload-modal"
+    class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 transition-opacity duration-300">
+
+    <div
+        class="bg-white rounded-3xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto transform transition-transform duration-300 scale-95">
+        <!-- Header -->
+        <div class="flex items-center justify-between px-8 py-6 border-b border-gray-200">
+            <h3 class="text-2xl font-bold text-gray-900 tracking-tight">
+               Sync/Upload - {{ date('F Y') }}  
+            </h3>
+            <button id="modal-close-btn" class="text-gray-400 hover:text-gray-700 transition-colors duration-200">
+                <i class="fa-solid fa-xmark fa-xl"></i>
             </button>
         </div>
         <div class="p-6 space-y-4">
@@ -208,7 +172,7 @@
                 </div>
             </div>
         </div>
-        <div class="px-6 py-1 bg-gray-50 border-t border-gray-200 flex justify-end">
+        <div class="px-8 py-6 bg-gray-50 border-t border-gray-200 flex justify-end">
             <button id="perform-sync-upload-btn"
                 class="bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">
                 Sync

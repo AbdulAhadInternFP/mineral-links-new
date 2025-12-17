@@ -603,82 +603,82 @@
                 <thead class="bg-gray-50 border-b border-gray-200 sticky top-0 z-10">
                     <tr>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Customer Name</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Property Name</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             CDLR Property Code</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             MW Property</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             State</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             County</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Basin</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Production Date</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Product Type</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Product Unit</th>
                         <th
-                            class="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Gross Volume</th>
                         <th
-                            class="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Net Volume</th>
                         <th
-                            class="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Gross Revenue</th>
                         <th
-                            class="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Severance</th>
                         <th
-                            class="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Deduction</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Deduction Type</th>
                         <th
-                            class="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Net Revenue</th>
                         <th
-                            class="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Decimal Interest</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Interest Type</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Check Date</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Deposit Date</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Check Number</th>
                         <th
-                            class="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Check Amount</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Owner Number</th>
                         <th
-                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Asset</th>
                         <th
-                            class="px-4 py-3 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
+                            class="px-4 py-1.5 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider whitespace-nowrap">
                             Status</th>
                     </tr>
                 </thead>
@@ -695,23 +695,23 @@
                         @endphp
                         <tr class="{{ $rowClass }} transition-colors invoice-row"
                             data-status="{{ $item['status'] }}">
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm text-gray-900">{{ $item['payor'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm font-medium text-gray-900">{{ $item['property'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm font-semibold text-brand-teal">{{ $item['cdlr_code'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm text-gray-700">{{ $item['mw_property'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm text-gray-700">{{ $item['state'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm text-gray-700">{{ $item['county'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm text-gray-700">{{ $item['basin'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm text-gray-700">{{ $item['prod_date'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap">
+                            <td class="px-4 py-1.5 whitespace-nowrap">
                                 @if ($isMismatched)
                                     <div class="flex items-center">
                                         <span class="text-sm text-gray-900">{{ $item['product_type'] }}</span>
@@ -722,41 +722,41 @@
                                     <span class="text-sm text-gray-900">{{ $item['product_type'] }}</span>
                                 @endif
                             </td>
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm text-gray-700">{{ $item['product_unit'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap text-right"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap text-right"><span
                                     class="text-sm font-mono text-gray-700">{{ $item['gross_volume'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap text-right"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap text-right"><span
                                     class="text-sm font-mono text-gray-700">{{ $item['net_volume'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap text-right"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap text-right"><span
                                     class="text-sm font-mono text-gray-900">{{ $item['gross_revenue'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap text-right"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap text-right"><span
                                     class="text-sm font-mono text-gray-700">{{ $item['severance'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap text-right"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap text-right"><span
                                     class="text-sm font-mono text-gray-700">{{ $item['deduction'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm text-gray-700">{{ $item['deduction_type'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap text-right"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap text-right"><span
                                     class="text-sm font-mono font-semibold text-gray-900">{{ $item['net_revenue'] }}</span>
                             </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-right"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap text-right"><span
                                     class="text-sm font-mono text-gray-700">{{ $item['decimal_interest'] }}</span>
                             </td>
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm text-gray-700">{{ $item['interest_type'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm text-gray-700">{{ $item['check_date'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm text-gray-700">{{ $item['deposit_date'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm text-gray-700">{{ $item['check_number'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap text-right"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap text-right"><span
                                     class="text-sm font-mono text-gray-900">{{ $item['check_amount'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm text-gray-700">{{ $item['owner_number'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap"><span
+                            <td class="px-4 py-1.5 whitespace-nowrap"><span
                                     class="text-sm text-gray-700">{{ $item['asset'] }}</span></td>
-                            <td class="px-4 py-3 whitespace-nowrap text-center">
+                            <td class="px-4 py-1.5 whitespace-nowrap text-left">
                                 @if ($isMismatched)
                                     <span
                                         class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-[#D6A77A] text-white">Mismatched</span>
@@ -805,7 +805,7 @@
             </div>
             <div class="flex gap-3">
                 <button
-                    class="bg-brand-teal text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-brand-teal/90 transition-colors text-sm flex items-center">
+                    class="bg-brand-terracotta text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm flex items-center">
                     <i class="fa-solid fa-rotate-left mr-2"></i>
                     Roll Back
                 </button>
@@ -879,9 +879,23 @@
                 filterTabs.forEach(t => {
                     t.classList.remove('active', 'bg-brand-teal', 'text-white');
                     t.classList.add('bg-transparent', 'text-gray-600');
+
+                    // Reset pill styles for inactive tabs
+                    const pill = t.querySelector('span:last-child');
+                    if (pill) {
+                        pill.classList.remove('bg-white/20', 'text-white');
+                        pill.classList.add('bg-brand-teal/20', 'text-brand-teal');
+                    }
                 });
                 this.classList.add('active', 'bg-brand-teal', 'text-white');
                 this.classList.remove('bg-transparent', 'text-gray-600');
+
+                // Set pill styles for active tab
+                const pill = this.querySelector('span:last-child');
+                if (pill) {
+                    pill.classList.remove('bg-brand-teal/20', 'text-brand-teal');
+                    pill.classList.add('bg-white/20', 'text-white');
+                }
 
                 const filter = this.dataset.filter;
                 invoiceRows.forEach(row => {
