@@ -1,396 +1,99 @@
-<x-layout title="Transaction Details">
-  <div id="reconciliation_alert"
-        class="flex items-center justify-between bg-white border-l-4 border-brand-terracotta rounded-r-lg shadow-sm px-6 py-4 mb-6">
-        <div class="flex items-center">
-            <div class="flex-shrink-0">
-                <i class="fa-solid fa-triangle-exclamation text-brand-terracotta text-xl"></i>
-            </div>
-            <div class="ml-4">
-                <p class="font-medium text-gray-900">Attention Required</p>
-                <p class="text-sm text-gray-500">3 line items need reconciliation.</p>
-            </div>
-        </div>
-        <button
-            class="px-4 py-2 text-sm font-medium text-white bg-brand-terracotta rounded-xl hover:bg-brand-terracotta/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-terracotta transition-colors">
-            Review Items
-        </button>
-    </div>
+<x-layout title="Transactions"> 
 
     <section id="tabs_and_actions_row" class="bg-white rounded-xl shadow px-6 py-3 mb-6">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <button
-                    class="filter-tab active flex items-center space-x-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-brand-teal text-white transition-colors"
-                    data-filter="all">
-                    <span>All</span>
-                    <span
-                        class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold bg-white/20 text-white rounded-full">24</span>
-                </button>
-                <button
-                    class="filter-tab flex items-center space-x-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-transparent text-gray-600 hover:bg-gray-100 transition-colors"
-                    data-filter="matched">
-                    <span>Matched</span>
-                    <span
-                        class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold bg-brand-teal/20 text-brand-teal rounded-full">21</span>
-                </button>
-                <button
-                    class="filter-tab flex items-center space-x-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-transparent text-gray-600 hover:bg-gray-100 transition-colors"
-                    data-filter="mismatched">
-                    <span>Mismatched</span>
-                    <span
-                        class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold bg-brand-teal/20 text-brand-teal rounded-full">3</span>
-                </button>
-            </div>
+        <div class="flex items-center justify-end">
             <div class="flex items-center space-x-4">
                 <div class="relative">
-                    <input type="text" placeholder="Search invoices..."
-                        class="w-60 h-11 pl-10 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
-                    <i class="fa-solid fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <select
+                        class="w-60 h-11 pl-4 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm appearance-none bg-white cursor-pointer">
+                        @php
+                            $currentYear = date('Y');
+                        @endphp
+                        @for ($i = $currentYear; $i >= $currentYear - 15; $i--)
+                            <option value="{{ $i }}">{{ $i }}</option>
+                        @endfor
+                    </select>
+                    <i
+                        class="fa-solid fa-chevron-down absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
                 </div>
                 <button id="sync-data-btn"
                     class="bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">
-                    <i class="fa-solid fa-rotate fa-fw mr-2"></i>Sync Data
+                    <i class="fa-solid fa-upload fa-fw mr-2"></i>Sync or Upload
                 </button>
             </div>
         </div>
     </section>
 
-    <section id="invoices_table_section"
-        class="bg-white rounded-xl shadow overflow-hidden">
+    <section id="invoices_table_section" class="bg-white rounded-xl shadow overflow-hidden">
         <div class="overflow-x-auto">
             <table class="w-full">
                 <thead class="bg-gray-50 border-b border-gray-200 sticky top-0">
                     <tr>
                         <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                             <div class="flex items-center cursor-pointer">
-                                Invoice #
+                                Month
                                 <i class="fa-solid fa-sort ml-2 text-gray-400"></i>
                             </div>
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Owner / Entity
+                            Status
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Product
+                            Type
                         </th>
                         <th class="px-6 py-3 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Volume
-                        </th>
-                        <th class="px-6 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Amount
-                        </th>
-                        <th class="px-6 py-3 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Status
+                            Action
                         </th>
                     </tr>
                 </thead>
                 <tbody id="invoices-table-body" class="divide-y divide-gray-200">
-                    <!-- Invoice INV-2024-001 Line Items -->
-                    <tr class="hover:bg-brand-sage/10 transition-colors invoice-row" data-status="matched"
-                        data-invoice="INV-2024-001">
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">INV-2024-001</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-medium text-gray-900">Permian Basin Energy LLC</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm text-gray-900">WTI Crude Oil</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="text-sm font-mono text-gray-700">58.6 bbl</span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <span class="text-sm font-semibold text-gray-900">$4,250.00</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-status-success text-white">Matched</span>
-                        </td>
-                    </tr>
-                    <tr class="bg-brand-sage/5 hover:bg-brand-sage/10 transition-colors invoice-row"
-                        data-status="matched" data-invoice="INV-2024-001">
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">INV-2024-001</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">Permian Basin Energy LLC</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm text-gray-900">Natural Gas</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="text-sm font-mono text-gray-700">135.3 mcf</span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <span class="text-sm font-semibold text-gray-900">$3,890.50</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-status-success text-white">Matched</span>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-brand-sage/10 transition-colors invoice-row" data-status="matched"
-                        data-invoice="INV-2024-001">
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">INV-2024-001</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">Permian Basin Energy LLC</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm text-gray-900">NGL - Condensate</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="text-sm font-mono text-gray-700">43.3 bbl</span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <span class="text-sm font-semibold text-gray-900">$1,245.00</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-status-success text-white">Matched</span>
-                        </td>
-                    </tr>
+                    @php
+                        $months = [];
+                        $currentMonth = (int) date('n');
+                        for ($m = 1; $m < $currentMonth; $m++) {
+                            $months[] = date('F', mktime(0, 0, 0, $m, 1));
+                        }
+                    @endphp
 
-                    <!-- Invoice INV-2024-002 Line Items -->
-                    <tr class="bg-brand-sage/5 hover:bg-brand-sage/10 transition-colors invoice-row"
-                        data-status="matched" data-invoice="INV-2024-002">
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">INV-2024-002</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-medium text-gray-900">Eagle Ford Minerals Co</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm text-gray-900">WTI Crude Oil</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="text-sm font-mono text-gray-700">72.4 bbl</span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <span class="text-sm font-semibold text-gray-900">$5,248.00</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-status-success text-white">Matched</span>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-brand-sage/10 transition-colors invoice-row" data-status="matched"
-                        data-invoice="INV-2024-002">
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">INV-2024-002</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">Eagle Ford Minerals Co</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm text-gray-900">Natural Gas</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="text-sm font-mono text-gray-700">89.7 mcf</span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <span class="text-sm font-semibold text-gray-900">$2,580.30</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-status-success text-white">Matched</span>
-                        </td>
-                    </tr>
+                    @foreach ($months as $index => $month)
+                        @php
+                            $isComplete = $index % 2 !== 0;
+                            $status = $isComplete ? 'Complete' : 'Incomplete';
+                            $statusClass = $isComplete ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800';
 
-                    <!-- Invoice INV-2024-003 Line Items (Mismatched) -->
-                    <tr class="hover:bg-brand-sage/10 transition-colors invoice-row" data-status="mismatched"
-                        data-invoice="INV-2024-003">
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">INV-2024-003</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-medium text-gray-900">Bakken Resources Inc</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm text-gray-900">WTI Crude Oil</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="text-sm font-mono text-gray-700">58.6 bbl</span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <span class="text-sm font-semibold text-gray-900">$4,250.00</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-status-success text-white">Matched</span>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-brand-sage/10 transition-colors invoice-row" data-status="mismatched"
-                        data-invoice="INV-2024-003">
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">INV-2024-003</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">Bakken Resources Inc</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm text-gray-900">Natural Gas</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="text-sm font-mono text-gray-700">135.3 mcf</span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <span class="text-sm font-semibold text-gray-900">$3,890.50</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-status-success text-white">Matched</span>
-                        </td>
-                    </tr>
-                    <tr class="bg-[#FFF7EF] hover:bg-[#F8EBD9] transition-colors invoice-row" data-status="mismatched"
-                        data-invoice="INV-2024-003">
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">INV-2024-003</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">Bakken Resources Inc</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex items-center">
-                                <span class="text-sm text-gray-900">NGL - Condensate</span>
-                                <i class="fa-solid fa-triangle-exclamation text-[#D6A77A] ml-2"
-                                    title="Missing on EnergyLink"></i>
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="text-sm font-mono text-gray-700">43.3 bbl</span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <span class="text-sm font-semibold text-gray-900">$1,245.00</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-[#D6A77A] text-white">Mismatched</span>
-                        </td>
-                    </tr>
-
-                
-                    <!-- Invoice INV-2024-005 Line Items -->
-                    <tr class="bg-brand-sage/5 hover:bg-brand-sage/10 transition-colors invoice-row"
-                        data-status="matched" data-invoice="INV-2024-005">
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">INV-2024-005</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-medium text-gray-900">Haynesville Gas Holdings</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm text-gray-900">Natural Gas</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="text-sm font-mono text-gray-700">312.5 mcf</span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <span class="text-sm font-semibold text-gray-900">$9,000.00</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-status-success text-white">Matched</span>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-brand-sage/10 transition-colors invoice-row" data-status="matched"
-                        data-invoice="INV-2024-005">
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">INV-2024-005</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">Haynesville Gas Holdings</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm text-gray-900">Natural Gas - Dry</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="text-sm font-mono text-gray-700">187.2 mcf</span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <span class="text-sm font-semibold text-gray-900">$5,390.00</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-status-success text-white">Matched</span>
-                        </td>
-                    </tr>
-
-                    <!-- Invoice INV-2024-006 Line Items -->
-                    <tr class="bg-brand-sage/5 hover:bg-brand-sage/10 transition-colors invoice-row"
-                        data-status="matched" data-invoice="INV-2024-006">
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">INV-2024-006</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-medium text-gray-900">Delaware Basin Operators</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm text-gray-900">WTI Crude Oil</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="text-sm font-mono text-gray-700">125.8 bbl</span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <span class="text-sm font-semibold text-gray-900">$9,120.50</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-status-success text-white">Matched</span>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-brand-sage/10 transition-colors invoice-row" data-status="matched"
-                        data-invoice="INV-2024-006">
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">INV-2024-006</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">Delaware Basin Operators</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm text-gray-900">Natural Gas</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="text-sm font-mono text-gray-700">78.4 mcf</span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <span class="text-sm font-semibold text-gray-900">$2,257.00</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-status-success text-white">Matched</span>
-                        </td>
-                    </tr>
-                    <tr class="bg-brand-sage/5 hover:bg-brand-sage/10 transition-colors invoice-row"
-                        data-status="matched" data-invoice="INV-2024-006">
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">INV-2024-006</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm font-semibold text-brand-teal">Delaware Basin Operators</span>
-                        </td>
-                        <td class="px-6 py-4">
-                            <span class="text-sm text-gray-900">NGL - Propane</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span class="text-sm font-mono text-gray-700">28.3 bbl</span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <span class="text-sm font-semibold text-gray-900">$816.50</span>
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-status-success text-white">Matched</span>
-                        </td>
-                    </tr>
+                            $typeText = $index % 2 === 0 ? 'Sync' : 'Upload';
+                            $typeClass =
+                                $index % 2 === 0 ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800';
+                        @endphp
+                        <tr class="hover:bg-brand-sage/10 transition-colors">
+                            <td class="px-6 py-1">
+                                <span class="text-sm font-medium text-gray-900">{{ $month }}</span>
+                            </td>
+                            <td class="px-6 py-1">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {{ $statusClass }}">
+                                    {{ $status }}
+                                </span>
+                            </td>
+                            <td class="px-6 py-1">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {{ $typeClass }}">
+                                    {{ $typeText }}
+                                </span>
+                            </td>
+                            <td class="px-6 py-1 text-center">
+                                <a href="{{ route('admin.invoice.detail') }}" class="text-gray-400 hover:text-brand-teal transition-colors">
+                                    <i class="w-6 text-brand-teal fa-solid fa-eye"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
 
-        <!-- Pagination Footer -->
-        <div class="px-6 py-4 border-t border-gray-200 flex items-center justify-between">
+        <!-- Pagination Footer --> 
+        <div class="px-6 py-1 border-t border-gray-200 flex items-center justify-between">
             <div class="flex items-center space-x-2">
                 <span class="text-sm text-gray-600">Show</span>
                 <select id="rows-per-page"
@@ -422,24 +125,14 @@
             </div>
         </div>
 
-        <!-- Footer with Post to QB button -->
-        <div class="px-6 py-4 bg-gray-50 border-t border-gray-200 flex items-center justify-between">
-            <div class="text-sm text-gray-600">
-                <span class="font-medium">12</span> matched line items ready to post
-            </div>
-            <button id="post-to-qb-btn"
-                class="bg-brand-teal text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-brand-teal/90 transition-colors text-sm flex items-center">
-                <img src="{{ asset('assets/images/qbo.svg') }}" alt="QBO" class="w-5 h-5 mr-2">
-                Post to QuickBooks
-            </button>
-        </div>
+      
     </section>
 
 </x-layout>
 
 <div id="view-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
     <div class="bg-white rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] w-[520px] max-h-[90vh] overflow-hidden">
-        <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+        <div class="flex items-center justify-between px-6 py-1 border-b border-gray-200">
             <div class="flex items-center space-x-3">
                 <h3 class="text-xl font-semibold text-gray-900" id="view-modal-title">Line Item Details</h3>
             </div>
@@ -475,9 +168,51 @@
                     class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-status-success text-white">Matched</span>
             </div>
         </div>
-        <div class="flex items-center justify-end space-x-3 px-6 py-4 bg-gray-50 border-t border-gray-200">
+        <div class="flex items-center justify-end space-x-3 px-6 py-1 bg-gray-50 border-t border-gray-200">
             <button
                 class="modal-close px-4 py-2 text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">Close</button>
+        </div>
+    </div>
+</div>
+
+<div id="sync-upload-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-xl shadow-xl w-[500px] overflow-hidden">
+        <div class="flex items-center justify-between px-6 py-1 border-b border-gray-200">
+            <h3 class="text-xl font-semibold text-gray-900">Sync or upload data with {{ date('F Y') }}</h3>
+            <button class="modal-close-sync text-gray-400 hover:text-gray-600 transition-colors">
+                <i class="fa-solid fa-xmark fa-lg"></i>
+            </button>
+        </div>
+        <div class="p-6 space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Action Type</label>
+                <select id="sync-action-selector"
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brand-teal text-sm">
+                    <option value="Sync">Sync Data</option>
+                    <option value="Upload">Upload File</option>
+                </select>
+            </div>
+
+            <div id="upload-input-container" class="hidden">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Upload File</label>
+                <div class="flex items-center justify-center w-full">
+                    <label for="dropzone-file"
+                        class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                            <i class="fa-solid fa-cloud-arrow-up text-gray-400 text-2xl mb-2"></i>
+                            <p class="text-xs text-gray-500">Click to upload or drag and drop</p>
+                            <p class="text-xs text-gray-500 mt-1" id="file-name-display"></p>
+                        </div>
+                        <input id="dropzone-file" type="file" class="hidden" />
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="px-6 py-1 bg-gray-50 border-t border-gray-200 flex justify-end">
+            <button id="perform-sync-upload-btn"
+                class="bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">
+                Sync
+            </button>
         </div>
     </div>
 </div>
@@ -512,16 +247,58 @@
         });
 
         // Sync data button
+        // Sync data button
+        const syncUploadModal = document.getElementById('sync-upload-modal');
+        const syncActionSelector = document.getElementById('sync-action-selector');
+        const uploadInputContainer = document.getElementById('upload-input-container');
+        const performSyncBtn = document.getElementById('perform-sync-upload-btn');
+        const fileInput = document.getElementById('dropzone-file');
+        const fileNameDisplay = document.getElementById('file-name-display');
+
         syncDataBtn.addEventListener('click', function() {
-            const icon = this.querySelector('i');
-            icon.classList.add('fa-spin');
+            syncUploadModal.classList.remove('hidden');
+            syncUploadModal.classList.add('flex');
+        });
+
+        // Close sync modal
+        document.querySelectorAll('.modal-close-sync').forEach(btn => {
+            btn.addEventListener('click', function() {
+                syncUploadModal.classList.add('hidden');
+                syncUploadModal.classList.remove('flex');
+            });
+        });
+
+        // Handle selector change
+        syncActionSelector.addEventListener('change', function() {
+            if (this.value === 'Upload') {
+                uploadInputContainer.classList.remove('hidden');
+                performSyncBtn.textContent = 'Upload';
+            } else {
+                uploadInputContainer.classList.add('hidden');
+                performSyncBtn.textContent = 'Sync';
+            }
+        });
+
+        // Handle file selection display
+        fileInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                fileNameDisplay.textContent = this.files[0].name;
+            }
+        });
+
+        // Handle Perform Action
+        performSyncBtn.addEventListener('click', function() {
+            const action = syncActionSelector.value;
             this.disabled = true;
+            this.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Processing...';
 
             setTimeout(() => {
-                icon.classList.remove('fa-spin');
                 this.disabled = false;
-                showToast('Data synced successfully.');
-            }, 2000);
+                this.textContent = action;
+                syncUploadModal.classList.add('hidden');
+                syncUploadModal.classList.remove('flex');
+                showToast(action + ' completed successfully.');
+            }, 1500);
         });
 
         // Post to QB button

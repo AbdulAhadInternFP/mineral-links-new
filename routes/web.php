@@ -22,18 +22,23 @@ Route::get('/admin/dashboard', function () {
 Route::get('/admin/product', function () {
     return view('admin.product.index');
 })->name('admin.product');
+
 Route::get('/admin/product/mapping', function () {
     return view('admin.product.mapping.index');
 })->name('admin.product.mapping');
+
 Route::get('/admin/integration', function () {
     return view('admin.integration.index');
 })->name('admin.integration');
+
 Route::get('/admin/invoices', function () {
     return view('admin.invoices.index');
 })->name('admin.invoices');
-Route::get('/admin/invoices_new', function () {
-    return view('admin.invoices.index_new');
-})->name('admin.invoices_new');
+
+Route::get('/admin/invoice/detail', function () {
+    return view('admin.invoices.detail');
+})->name('admin.invoice.detail');
+
 Route::get('/admin/reports', function () {
     return view('admin.reports.index');
 })->name('admin.reports');
