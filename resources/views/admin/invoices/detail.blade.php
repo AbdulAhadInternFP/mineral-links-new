@@ -592,7 +592,7 @@
                         class="w-60 h-11 pl-10 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
                     <i class="fa-solid fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                 </div>
-              
+
             </div>
         </div>
     </section>
@@ -803,11 +803,19 @@
             <div class="text-sm text-gray-600">
                 <span class="font-medium">{{ $matchedCount }}</span> matched line items ready to post
             </div>
-            <button id="post-to-qb-btn"
-                class="bg-brand-teal text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-brand-teal/90 transition-colors text-sm flex items-center">
-                <img src="{{ asset('assets/images/qbo.svg') }}" alt="QBO" class="w-5 h-5 mr-2">
-                Post to QuickBooks
-            </button>
+            <div class="flex gap-3">
+                <button
+                    class="bg-brand-teal text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-brand-teal/90 transition-colors text-sm flex items-center">
+                    <i class="fa-solid fa-rotate-left mr-2"></i>
+                    Roll Back
+                </button>
+
+                <a href="{{ route('admin.invoice.summarize') }}"
+                    class="bg-brand-teal text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-brand-teal/90 transition-colors text-sm flex items-center">
+                    <i class="fa-solid fa-chart-simple mr-2"></i>
+                    Summarize Now
+                </a>
+            </div>
         </div>
     </section>
 

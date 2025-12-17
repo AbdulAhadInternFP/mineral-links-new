@@ -14,7 +14,6 @@ Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
-
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
@@ -42,3 +41,11 @@ Route::get('/admin/invoice/detail', function () {
 Route::get('/admin/reports', function () {
     return view('admin.reports.index');
 })->name('admin.reports');
+
+Route::get('/admin/invoice/summarize', function () {
+    return view('admin.invoices.summarize');
+})->name('admin.invoice.summarize');
+
+Route::get('/admin/invoice/preview', function () {
+    return view('admin.invoices.preview');
+})->name('admin.invoice.preview');
