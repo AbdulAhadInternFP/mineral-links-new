@@ -40,7 +40,7 @@
                     @for ($i = 0; $i < 10; $i++)
                         @php
                             $customer = $companies[$i % count($companies)];
-                            $amount = rand(10000, 99999) / 100;
+                            $amount = rand(10000, 99999) / 10;
                         @endphp
                         <tr class="hover:bg-brand-sage/10 transition-colors">
                             <td class="px-6 py-1">

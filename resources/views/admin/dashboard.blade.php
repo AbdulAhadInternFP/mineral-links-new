@@ -51,7 +51,7 @@
                 <span class="text-sm font-medium text-gray-500">Pending Transactions</span>
                 <div class="flex items-end justify-between mt-2">
                     <span class="text-4xl font-bold text-gray-800">8</span>
-                 
+
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
                 <span class="text-sm font-medium text-gray-500">Sync Errors (24h)</span>
                 <div class="flex items-end justify-between mt-2">
                     <span class="text-4xl font-bold text-status-warning">1</span>
-                   
+
                 </div>
             </div>
         </div>
@@ -70,50 +70,184 @@
     <section id="integration_status_section" class="mb-6">
         <h2 class="text-lg font-semibold text-gray-700 mb-4">Integration Status</h2>
 
-        {{-- Remove Grid-> grid --}}
+        <section id="charts_section" class="grid grid-cols-3 gap-6 mb-6">
+            <!-- Revenue & Volume Chart -->
+            <div class="col-span-2 bg-white p-6 rounded-xl shadow">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-semibold text-gray-800">Revenue & Volume Trends</h3>
+                    <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2.5 py-1 rounded-full">Last 6
+                        Months</span>
+                </div>
+                <div id="revenueChart" class="w-full h-[300px]"></div>
+            </div>
 
-        <div class=" grid-cols-3 gap-6 hidden">
-            <div id="qbo_card"
-                class="bg-white p-6 rounded-xl shadow flex flex-col items-center text-center">
-                <div class="w-12 h-12   rounded-full flex items-center justify-center mb-3">
-                   <img src="{{asset('assets/images/qbo.svg')}}" alt="">
+            <!-- Sync Health Chart -->
+            <div class="bg-white p-6 rounded-xl shadow flex flex-col">
+                <h3 class="font-semibold text-gray-800 mb-4">Integration Health</h3>
+                <div class="flex-1 flex items-center justify-center relative">
+                    <div id="syncChart" class="w-full"></div>
+                    <!-- Center Text Overlay -->
+                    <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                        <span class="text-3xl font-bold text-gray-800">98%</span>
+                        <span class="text-xs text-gray-500 font-medium uppercase tracking-wide">Success</span>
+                    </div>
                 </div>
-                <h3 class="font-semibold text-gray-800">QuickBooks Online</h3>
-                <span class="text-xs font-medium bg-gray-100 text-gray-700 px-2 py-0.5 rounded-full my-2">Not
-                    Connected</span>
-                <p class="text-sm text-gray-500 leading-relaxed mb-4">Connect your QBO account to push synced data.</p>
-                <button
-                    class="w-full bg-brand-terracotta text-white font-semibold py-2 px-4 rounded-xl hover:bg-brand-terracotta/90 transition-colors">Connect
-                    QuickBooks Online</button>
-            </div>
-            <div id="mineralware_card"
-                class="bg-white p-6 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] flex flex-col items-center text-center">
-                <div class="w-12 h-12   rounded-full flex items-center justify-center mb-3">
-                        <img src="{{asset('assets/images/image.png')}}" alt="">
+                <div class="mt-4 grid grid-cols-2 gap-4 text-center">
+                    <div class="p-2 rounded-lg bg-gray-50">
+                        <span class="block text-xs text-gray-500">Synced</span>
+                        <span class="block font-semibold text-gray-800">12,842</span>
+                    </div>
+                    <div class="p-2 rounded-lg bg-gray-50">
+                        <span class="block text-xs text-gray-500">Failed</span>
+                        <span class="block font-semibold text-status-warning">145</span>
+                    </div>
                 </div>
-                <h3 class="font-semibold text-gray-800">Mineralware</h3>
-                <span class="text-xs font-medium bg-green-100 text-green-700 px-2 py-0.5 rounded-full my-2"> 
-                    Connected</span>
-                <p class="text-sm text-gray-500 leading-relaxed mb-4">Pull product and transaction data from
-                    Mineralware.</p>
-                <button
-                    class="w-full bg-red-500 text-white font-semibold py-2 px-4 rounded-xl hover:bg-red-500/90 transition-colors">Disconnect
-                    Mineralware</button>
             </div>
-            <div id="energylinks_card"
-                class="bg-white p-6 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] flex flex-col items-center text-center">
-                <div class="w-12 h-12   rounded-full flex items-center justify-center mb-3">
-                         <img src="{{asset('assets/images/el.svg')}}" alt="">
-                </div>
-                <h3 class="font-semibold text-gray-800">Energy Links</h3>
-                <span class="text-xs font-medium bg-green-100 text-green-700 px-2 py-0.5 rounded-full my-2"> 
-                    Connected</span>
-                <p class="text-sm text-gray-500 leading-relaxed mb-4">Aggregate and transform data via Energy Links.</p>
-                <button
-                    class="w-full bg-red-500 text-white font-semibold py-2 px-4 rounded-xl hover:bg-red-500/90 transition-colors">Disconnect
-                    Energy Links</button>
-            </div>
-        </div>
+        </section>
+
+        <!-- ApexCharts Script -->
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Revenue & Volume Chart
+                const revenueOptions = {
+                    series: [{
+                        name: 'Net Revenue',
+                        type: 'area', // Area chart for Revenue
+                        data: [45000, 52000, 38000, 64000, 58000, 72000]
+                    }, {
+                        name: 'Volume (bbl)',
+                        type: 'column', // Bar chart for Volume
+                        data: [850, 920, 780, 1100, 950, 1250]
+                    }],
+                    chart: {
+                        height: 300,
+                        type: 'line', // Mixed type
+                        fontFamily: 'Inter, sans-serif',
+                        toolbar: {
+                            show: false
+                        },
+                        zoom: {
+                            enabled: false
+                        }
+                    },
+                    stroke: {
+                        width: [3, 0],
+                        curve: 'smooth'
+                    },
+                    plotOptions: {
+                        bar: {
+                            columnWidth: '30%',
+                            borderRadius: 4
+                        }
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    fill: {
+                        opacity: [0.1, 1],
+                        gradient: {
+                            inverseColors: false,
+                            shade: 'light',
+                            type: "vertical",
+                            opacityFrom: 0.85,
+                            opacityTo: 0.55,
+                            stops: [0, 100, 100, 100]
+                        }
+                    },
+                    colors: ['#2A6F6A', '#D6A77A'], // Brand Teal & Terracotta
+                    labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    xaxis: {
+                        axisBorder: {
+                            show: false
+                        },
+                        axisTicks: {
+                            show: false
+                        },
+                        tooltip: {
+                            enabled: false
+                        }
+                    },
+                    yaxis: [{
+                        title: {
+                            text: 'Revenue ($)',
+                            style: {
+                                color: '#2A6F6A',
+                                fontWeight: 600
+                            }
+                        },
+                        labels: {
+                            formatter: (val) => {
+                                return "$" + (val / 1000).toFixed(0) + "k"
+                            }
+                        }
+                    }, {
+                        opposite: true,
+                        title: {
+                            text: 'Volume (bbl)',
+                            style: {
+                                color: '#D6A77A',
+                                fontWeight: 600
+                            }
+                        }
+                    }],
+                    legend: {
+                        position: 'top',
+                        horizontalAlign: 'right'
+                    },
+                    grid: {
+                        borderColor: '#f1f1f1',
+                        strokeDashArray: 4
+                    }
+                };
+
+                const revenueChart = new ApexCharts(document.querySelector("#revenueChart"), revenueOptions);
+                revenueChart.render();
+
+
+                // Sync Health Donut Chart
+                const syncOptions = {
+                    series: [12842, 145, 50], // Synced, Error, Pending
+                    labels: ['Synced', 'Errors', 'Pending'],
+                    chart: {
+                        type: 'donut',
+                        height: 240,
+                        fontFamily: 'Inter, sans-serif',
+                    },
+                    colors: ['#4CAF50', '#E57373', '#D6A77A'], // Success, Error, Warning colors
+                    plotOptions: {
+                        pie: {
+                            donut: {
+                                size: '75%',
+                                labels: {
+                                    show: false
+                                } // We have custom overlay
+                            }
+                        }
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    legend: {
+                        show: false
+                    },
+                    stroke: {
+                        show: false
+                    },
+                    tooltip: {
+                        enabled: true,
+                        y: {
+                            formatter: function(val) {
+                                return val + " items"
+                            }
+                        }
+                    }
+                };
+
+                const syncChart = new ApexCharts(document.querySelector("#syncChart"), syncOptions);
+                syncChart.render();
+            });
+        </script>
     </section>
 
     <!-- Bottom Section -->
@@ -205,4 +339,3 @@
     </section>
 
 </x-layout>
- 

@@ -222,13 +222,11 @@
                                      {{ $mapping['status'] }}</span>
                              </td>
 
-                             <td class="px-3 py-1">
-                                 @if ($mapping['qbo_mapped'])
-                                     <i class="fa-solid fa-circle-check text-green-700 text-lg"></i>
+                             <td class="px-3 py-1"
+                                 @if ($mapping['qbo_mapped']) <i class="fa-solid fa-circle-check text-green-700 text-lg"></i>
                                  @else
-                                     <i class="fa-solid fa-circle-xmark text-red-700 text-xl"></i>
-                                 @endif
-                             </td>
+                                     <i class="fa-solid fa-circle-xmark text-red-700 text-xl"></i> @endif
+                                 </td>
                              <td class="px-3 py-1 flex items-center gap-3">
                                  <i class="fa-solid fa-pencil text-gray-400 hover:text-gray-600 cursor-pointer"></i>
                                  <label class="relative inline-flex items-center cursor-pointer">
@@ -306,26 +304,59 @@
 
                  <!-- Interest Type -->
                  <div class="form-group">
-                     <label for="interest-type">Interest Type</label>
-                     <select id="interest-type" class="form-select">
-                         <option value="" selected disabled>Select interest type</option>
-                     </select>
+                     <label>Interest Type</label> <!-- Removed 'for' to avoid conflict -->
+                     <div class="flex items-center gap-2" id="interest-wrapper">
+                         <select id="interest-type" class="form-select flex-1">
+                             <option value="" selected disabled>Select interest type</option>
+                         </select>
+                         <input type="text" id="interest-custom" class="form-input flex-1 hidden"
+                             placeholder="Enter custom interest">
+                         <button type="button"
+                             class="toggle-custom-btn whitespace-nowrap text-sm font-medium text-brand-teal hover:underline"
+                             data-target="interest">
+                             + Add New
+                         </button>
+                     </div>
                  </div>
 
                  <!-- Product Type -->
                  <div class="form-group">
-                     <label for="product-type">Product Type</label>
-                     <select id="product-type" class="form-select">
-                         <option value="" selected disabled>Select product type</option>
-                     </select>
+                     <label>Product Type</label>
+                     <div class="flex items-center gap-2" id="type-wrapper">
+                         <select id="product-type" class="form-select flex-1">
+                             <option value="" selected disabled>Select product type</option>
+                         </select>
+                         <input type="text" id="type-custom" class="form-input flex-1 hidden"
+                             placeholder="Enter custom type">
+                         <button type="button"
+                             class="toggle-custom-btn whitespace-nowrap text-sm font-medium text-brand-teal hover:underline"
+                             data-target="type">
+                             + Add New
+                         </button>
+                     </div>
                  </div>
 
                  <!-- Product Input -->
                  <div class="form-group">
-                     <label for="qbo-sale">Product</label>
+                     <label for="qbo-sale">Product Code</label>
                      <input id="qbo-sale"
                          class="w-full py-3 rounded-xl px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm"
                          placeholder="Enter product code eg: 4020" />
+                 </div>
+
+                 <!-- Preview Section -->
+                 <div id="preview-section" class="hidden bg-gray-50 rounded-xl p-4 border border-gray-200">
+                     <h4 class="text-sm font-semibold text-gray-700 mb-2">Preview</h4>
+                     <div class="space-y-2">
+                         <div class="flex items-center justify-between text-sm">
+                             <span class="text-gray-500">Sales Line:</span>
+                             <span id="preview-sales" class="font-mono text-brand-teal font-medium">-</span>
+                         </div>
+                         <div class="flex items-center justify-between text-sm">
+                             <span class="text-gray-500">Tax Line:</span>
+                             <span id="preview-tax" class="font-mono text-brand-terracotta font-medium">-</span>
+                         </div>
+                     </div>
                  </div>
 
                  <!-- Footer -->
@@ -334,9 +365,9 @@
                      {{-- <button  class="btn-primary">Create Mapping</button> --}}
 
 
-                     <button type="button" id="modal-cancel-btn" class="bg-transparent border border-brand-teal text-brand-teal font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-teal/90 hover:text-white transition-colors text-sm">Cancel</button> 
-                     <button
-                         id="create-mapping-btn" type="submit"
+                     <button type="button" id="modal-cancel-btn"
+                         class="bg-transparent border border-brand-teal text-brand-teal font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-teal/90 hover:text-white transition-colors text-sm">Cancel</button>
+                     <button id="create-mapping-btn" type="submit"
                          class="bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">Create
                          Mapping</button>
                  </div>
@@ -766,59 +797,167 @@
 
      /* ===============================
         FORM SUBMIT → ADD ROW
-        (STRUCTURE FIXED)
+        (STRUCTURE FIXED + NEW LOGIC)
      ================================ */
      document.addEventListener('DOMContentLoaded', () => {
 
          const form = document.getElementById('mapping-form');
          const tbody = document.getElementById('mapping-table-body');
          const modal = document.getElementById('mapping-form-modal');
-         const totalRow = document.querySelectorAll('tr')
+         const totalRow = document.querySelectorAll('tr');
 
+         // Elements
+         const interestSelect = document.getElementById('interest-type');
+         const interestCustom = document.getElementById('interest-custom');
+         const typeSelect = document.getElementById('product-type');
+         const typeCustom = document.getElementById('type-custom');
+         const codeInput = document.getElementById('qbo-sale');
+         const toggleBtns = document.querySelectorAll('.toggle-custom-btn');
+         const previewSection = document.getElementById('preview-section');
+
+         // --- Toggle Logic ---
+         toggleBtns.forEach(btn => {
+             btn.addEventListener('click', function() {
+                 const target = this.dataset.target; // 'interest' or 'type'
+                 const wrapper = document.getElementById(target + '-wrapper');
+                 const select = wrapper.querySelector('select');
+                 const input = wrapper.querySelector('input');
+                 const selectContainer = wrapper.querySelector(
+                 '.select2-container'); // Select2 wrapper
+
+                 if (input.classList.contains('hidden')) {
+                     // Switch to Custom Input
+                     if (selectContainer) selectContainer.style.display = 'none';
+                     select.style.display = 'none';
+                     select.classList.add('hidden');
+
+                     input.classList.remove('hidden');
+                     input.focus();
+                     this.textContent = 'Cancel';
+                     this.classList.add('text-red-500', 'hover:text-red-700');
+                     this.classList.remove('text-brand-teal');
+                 } else {
+                     // Switch back to Select
+                     input.classList.add('hidden');
+                     input.value = ''; // Clear custom input
+
+                     if (selectContainer) {
+                         selectContainer.style.display = 'block';
+                     } else {
+                         select.style.display = 'block';
+                     }
+                     select.classList.remove('hidden');
+
+                     this.textContent = '+ Add New';
+                     this.classList.remove('text-red-500', 'hover:text-red-700');
+                     this.classList.add('text-brand-teal');
+                 }
+                 updatePreview();
+             });
+         });
+
+         // --- Preview Logic ---
+         function updatePreview() {
+             // Get Interest
+             let interest = interestCustom.classList.contains('hidden') ?
+                 $(interestSelect).val() : interestCustom.value;
+
+             // Get Type
+             let type = typeCustom.classList.contains('hidden') ?
+                 $(typeSelect).val() : typeCustom.value;
+
+             // Get Code
+             let code = codeInput.value;
+
+             if (interest && type && code) {
+                 previewSection.classList.remove('hidden');
+
+                 // Calculate next sequence (mocking current length + 1)
+                 // Note: In real app, this might need more robust logic
+                 const sequence = String(document.querySelectorAll('#mapping-table-body tr').length + 1)
+                     .padStart(2, '0');
+
+                 // Generate Strings
+                 const salesStr = `${code}-${sequence} ${interest}-${type} Sales`;
+
+                 // Tax Code Logic: Add 1000 to Sales Code
+                 const taxCodeVal = parseInt(code) + 1000;
+                 const taxStr = isNaN(taxCodeVal) ? 'Err-Tax' :
+                     `${taxCodeVal}-${sequence} ${interest}-${type} Tax`;
+
+                 document.getElementById('preview-sales').textContent = salesStr;
+                 document.getElementById('preview-tax').textContent = taxStr;
+             } else {
+                 previewSection.classList.add('hidden');
+             }
+         }
+
+         // Listeners for Preview
+         $('#interest-type').on('change', updatePreview);
+         $('#product-type').on('change', updatePreview);
+         interestCustom.addEventListener('input', updatePreview);
+         typeCustom.addEventListener('input', updatePreview);
+         codeInput.addEventListener('input', updatePreview);
+
+
+         // --- Submit Handler ---
          form.addEventListener('submit', function(e) {
              e.preventDefault();
 
-             const interest = document.getElementById('interest-type').value;
-             const productType = document.getElementById('product-type').value;
-             const product = document.getElementById('qbo-sale').value;
+             let interest = interestCustom.classList.contains('hidden') ?
+                 $(interestSelect).val() : interestCustom.value;
+             let type = typeCustom.classList.contains('hidden') ?
+                 $(typeSelect).val() : typeCustom.value;
+             let code = codeInput.value;
+
+             if (!interest || !type || !code) {
+                 alert('Please fill in all fields');
+                 return;
+             }
+
+             // Use the preview string as the product name
+             const sequence = String(document.querySelectorAll('#mapping-table-body tr').length + 1)
+                 .padStart(2, '0');
+             const productFinal =
+             `${code}-${sequence} ${interest}-${type} Sales`; // Using Sales line as main product
 
              const row = document.createElement('tr');
              row.className = 'h-[40px] mapping-row hover:bg-brand-sage/10';
-
-             // **Set initial status**
              row.dataset.status = 'active';
 
              row.innerHTML = `
-        <td class="px-6"><span class="text-sm font-medium text-gray-800">${interest}</span></td>
-        <td class="px-6"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-teal text-white">${productType}</span></td>
-        <td class="px-6"><span class="text-sm text-gray-700">${`4020-${totalRow.length}-${interest}-${product}`}</span></td>
-        <td class=""><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-brand-teal text-white toggle-label">Active</span></td>
+                <td class="px-6"><span class="text-sm font-medium text-gray-800">${interest}</span></td>
+                <td class="px-6"><span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-teal/10 text-brand-teal">${type}</span></td>
+                <td class="px-6"><span class="text-sm text-gray-700">${productFinal}</span></td>
+                <td class=""><span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-500 toggle-label">Active</span></td>
 
-        <td class="px-6 flex items-center gap-3">
-            <i class="fa-solid fa-circle-check text-green-700 text-lg"></i>
-            <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors" title="Edit">
-            <i data-fa-i2svg=""><svg class="svg-inline--fa fa-pencil fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"></path></svg></i></button>
-
-            <label class="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" class="sr-only mapping-toggle peer" checked>
-                <div class="w-11 h-6 bg-gray-300 rounded-full
-                    peer-checked:bg-brand-teal
-                    after:content-[''] after:absolute after:top-[2px] after:left-[2px]
-                    after:bg-white after:border after:rounded-full
-                    after:h-5 after:w-5 after:transition-all
-                    peer-checked:after:translate-x-full">
-                </div>
-            </label>
-        </td>
-    `;
+                <td class="px-6">
+                     <i class="fa-solid fa-circle-check text-green-700 text-lg"></i>
+                </td>
+                <td class="px-6 flex items-center gap-3">
+                    <i class="fa-solid fa-pencil text-gray-400 hover:text-gray-600 cursor-pointer"></i>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only mapping-toggle peer" checked>
+                        <div class="w-11 h-6 bg-gray-300 rounded-full peer-checked:bg-brand-teal
+                            after:absolute after:top-[2px] after:left-[2px] after:bg-white after:h-5 after:w-5
+                            after:rounded-full after:transition-all peer-checked:after:translate-x-full">
+                        </div>
+                    </label>
+                </td>
+            `;
 
              tbody.appendChild(row);
 
              form.reset();
+             // Reset Select2
+             $('#interest-type').val(null).trigger('change');
+             $('#product-type').val(null).trigger('change');
+             previewSection.classList.add('hidden');
+
              modal.classList.add('hidden');
              modal.classList.remove('flex');
 
-             renderRows(); // immediately apply toggle filter
+             if (window.renderRows) window.renderRows();
          });
      });
  </script>
