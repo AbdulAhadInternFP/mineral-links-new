@@ -588,14 +588,11 @@
             </div>
             <div class="flex items-center space-x-4">
                 <div class="relative">
-                    <input type="text" placeholder="Search invoices..."
+                    <input type="text" placeholder="Search items..."
                         class="w-60 h-11 pl-10 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
                     <i class="fa-solid fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                 </div>
-                <button id="sync-data-btn"
-                    class="bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">
-                    <i class="fa-solid fa-rotate fa-fw mr-2"></i>Sync Data
-                </button>
+              
             </div>
         </div>
     </section>
