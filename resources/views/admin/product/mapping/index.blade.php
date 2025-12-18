@@ -411,7 +411,7 @@
                      <button type="button" id="modal-cancel-btn"
                          class="bg-transparent border border-brand-teal text-brand-teal font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-teal/90 hover:text-white transition-colors text-sm">Cancel</button>
                      <button id="create-mapping-btn" type="submit"
-                         class="create-mapping-submit-btn bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">Create
+                         class="create-mapping-submit-btn bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm cursor-not-allowed">Create
                          Mapping</button>
                  </div>
 
@@ -882,6 +882,7 @@
              if (interestValue && typeValue) {
                  console.log('Hello...')
                  previewSection.classList.remove('hidden');
+                 submitBtn.classList.remove('cursor-not-allowed');
              }
          }
          // Select change (pass function reference, not call)
