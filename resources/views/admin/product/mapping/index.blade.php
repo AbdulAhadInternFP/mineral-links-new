@@ -7,7 +7,7 @@
                  'interest' => 'RI',
                  'type' => 'Oil',
                  'Sales' => '4020-01 RI-Oil Sales',
-                 'Tax' => '5020-01 RI-Oil Tax Tax',
+                 'Tax' => '5020-01 RI-Oil Tax',
                  'status' => 'Active',
                  'qbo_mapped' => true,
              ],
@@ -409,7 +409,7 @@
                      <button type="button" id="modal-cancel-btn"
                          class="bg-transparent border border-brand-teal text-brand-teal font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-teal/90 hover:text-white transition-colors text-sm">Cancel</button>
                      <button id="create-mapping-btn" type="submit"
-                         class="bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">Create
+                         class="create-mapping-submit-btn bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">Create
                          Mapping</button>
                  </div>
 
@@ -449,7 +449,7 @@
 
 
 
-
+const submitFormBtn = document.querySelector('.create-mapping-submit-btn');
 
 
      document.addEventListener('DOMContentLoaded', function() {
@@ -462,6 +462,7 @@
          const cancelDelete = document.getElementById('cancel-delete');
          const confirmDelete = document.getElementById('confirm-delete');
          const deleteButtons = document.querySelectorAll('.delete-mapping');
+         
 
          const productRadios = document.querySelectorAll('input[name="product"]');
          const qboAddRadios = document.querySelectorAll('input[name="qbo-item-add"]');
@@ -730,6 +731,7 @@
 
 
 
+
      // form Function
 
 
@@ -835,13 +837,17 @@
          row.remove(); // replace on save
      });
 
-     typeSelect
 
+// document.addEventListener('DOMContentLoaded', function () {
+
+    
+
+// });
      /* ===============================
         FORM SUBMIT → ADD ROW
         (STRUCTURE FIXED + NEW LOGIC)
      ================================ */
-     document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
 
          const form = document.getElementById('mapping-form');
          const tbody = document.getElementById('mapping-table-body');
@@ -856,6 +862,9 @@
          const codeInput = document.getElementById('qbo-sale');
          const toggleBtns = document.querySelectorAll('.toggle-custom-btn');
          const previewSection = document.getElementById('preview-section');
+
+
+        
 
          // --- Toggle Logic ---
          toggleBtns.forEach(btn => {
@@ -909,7 +918,7 @@
                  $(typeSelect).val() : typeCustom.value;
 
              // Get Code
-             let code = codeInput.value;
+             let code = codeInput?.value;
 
              if (interest && type && code) {
                  previewSection.classList.remove('hidden');
@@ -934,6 +943,8 @@
              }
          }
 
+
+        
          // Listeners for Preview
          $('#interest-type').on('change', updatePreview);
          $('#product-type').on('change', updatePreview);
