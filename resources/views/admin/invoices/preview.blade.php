@@ -14,191 +14,74 @@
         'address' => "conocophillips co Ltd\nBuilding no: 6771\nAl Qana",
     ];
 
-    // Products from Product Mapping Screen
-    $products = [
-        // RI Series
+    // Products from Product Mapping Screen - Sales values (First 20 rows)
+    $salesProducts = [
+        ['name' => '4020-01 RI-Oil Sales', 'description' => '4020-01 RI-Oil Sales', 'net_revenue' => 23.81],
+        ['name' => '4020-02 RI-Gas Sales', 'description' => '4020-02 RI-Gas Sales', 'net_revenue' => 30.58],
+        ['name' => '4020-03 RI-LNG Sales', 'description' => '4020-03 RI-LNG Sales', 'net_revenue' => 11.72],
+        ['name' => '4020-04 RI-Product Sales', 'description' => '4020-04 RI-Product Sales', 'net_revenue' => 18.57],
+        ['name' => '4020-05 ORRI-Oil Sales', 'description' => '4020-05 ORRI-Oil Sales', 'net_revenue' => 239.17],
+        ['name' => '4020-06 ORRI-Gas Sales', 'description' => '4020-06 ORRI-Gas Sales', 'net_revenue' => 264.27],
+        ['name' => '4020-07 ORRI-LNG Sales', 'description' => '4020-07 ORRI-LNG Sales', 'net_revenue' => 27.78],
+        ['name' => '4020-08 ORRI-Product Sales', 'description' => '4020-08 ORRI-Product Sales', 'net_revenue' => 61.31],
+        ['name' => '4020-09 OR-Oil Sales', 'description' => '4020-09 OR-Oil Sales', 'net_revenue' => 201.7],
+        ['name' => '4020-10 OR-Gas Sales', 'description' => '4020-10 OR-Gas Sales', 'net_revenue' => 17.86],
+        ['name' => '4020-11 OR-LNG Sales', 'description' => '4020-11 OR-LNG Sales', 'net_revenue' => 59.07],
+        ['name' => '4020-12 OR-Product Sales', 'description' => '4020-12 OR-Product Sales', 'net_revenue' => 289.19],
+        ['name' => '4020-13 WI-Oil Sales', 'description' => '4020-13 WI-Oil Sales', 'net_revenue' => 298.55],
+        ['name' => '4020-14 WI-Gas Sales', 'description' => '4020-14 WI-Gas Sales', 'net_revenue' => 1.93],
+        ['name' => '4020-15 WI-LNG Sales', 'description' => '4020-15 WI-LNG Sales', 'net_revenue' => 125.0],
+        ['name' => '4020-16 WI-Product Sales', 'description' => '4020-16 WI-Product Sales', 'net_revenue' => 450.0],
+        ['name' => '4020-17-MISC - Oil Sales', 'description' => '4020-17-MISC - Oil Sales', 'net_revenue' => 850.0],
+        ['name' => '4020-18 MISC - Gas Sales', 'description' => '4020-18 MISC - Gas Sales', 'net_revenue' => 2400.0],
+        ['name' => '4020-19-MISC - LNG Sales', 'description' => '4020-19-MISC - LNG Sales', 'net_revenue' => 6.8],
         [
-            'name' => '4201-01-RI-Oil',
-            'category' => 'Oil',
-            'description' => 'Revenue Interest - Oil',
-            'qty' => 1,
-            'rate' => 2500.0,
-            'vat' => 15,
-        ],
-        [
-            'name' => '4201-02-RI - Gas',
-            'category' => 'Gas',
-            'description' => 'Revenue Interest - Gas',
-            'qty' => 850,
-            'rate' => 12.5,
-            'vat' => 18,
-        ],
-        [
-            'name' => '4201-03-RI - LNG',
-            'category' => 'LNG',
-            'description' => 'Revenue Interest - LNG',
-            'qty' => 500,
-            'rate' => 8.75,
-            'vat' => 15,
-        ],
-        [
-            'name' => '4201-04-RI - Product',
-            'category' => 'Product',
-            'description' => 'Revenue Interest - Product',
-            'qty' => 30,
-            'rate' => 1850.0,
-            'vat' => 20,
-        ],
-        // ORRI Series
-        [
-            'name' => '4201-05-ORRI - Oil',
-            'category' => 'Oil',
-            'description' => 'Overriding Royalty Interest - Oil',
-            'qty' => 1,
-            'rate' => 15000.0,
-            'vat' => 18,
-        ],
-        [
-            'name' => '4201-06-ORRI - Gas',
-            'category' => 'Gas',
-            'description' => 'Overriding Royalty Interest - Gas',
-            'qty' => 25,
-            'rate' => 450.0,
-            'vat' => 15,
-        ],
-        [
-            'name' => '4201-07-ORRI - LNG',
-            'category' => 'LNG',
-            'description' => 'Overriding Royalty Interest - LNG',
-            'qty' => 1,
-            'rate' => 8500.0,
-            'vat' => 18,
-        ],
-        [
-            'name' => '4201-08-ORRI - Product',
-            'category' => 'Product',
-            'description' => 'Overriding Royalty Interest - Product',
-            'qty' => 12,
-            'rate' => 3200.0,
-            'vat' => 15,
-        ],
-        // OR Series
-        [
-            'name' => '4201-09-OR - Oil',
-            'category' => 'Oil',
-            'description' => 'Overriding Royalty - Oil',
-            'qty' => 5000,
-            'rate' => 4.25,
-            'vat' => 20,
-        ],
-        [
-            'name' => '4201-10-OR - Gas',
-            'category' => 'Gas',
-            'description' => 'Overriding Royalty - Gas',
-            'qty' => 3,
-            'rate' => 12500.0,
-            'vat' => 20,
-        ],
-        [
-            'name' => '4201-11-OR - LNG',
-            'category' => 'LNG',
-            'description' => 'Overriding Royalty - LNG',
-            'qty' => 1,
-            'rate' => 7800.0,
-            'vat' => 15,
-        ],
-        [
-            'name' => '4201-12-OR - Product',
-            'category' => 'Product',
-            'description' => 'Overriding Royalty - Product',
-            'qty' => 50,
-            'rate' => 125.0,
-            'vat' => 18,
-        ],
-        // WI Series
-        [
-            'name' => '4201-13-WI - Oil',
-            'category' => 'Oil',
-            'description' => 'Working Interest - Oil',
-            'qty' => 40,
-            'rate' => 850.0,
-            'vat' => 15,
-        ],
-        [
-            'name' => '4201-14-WI - Gas',
-            'category' => 'Gas',
-            'description' => 'Working Interest - Gas',
-            'qty' => 20,
-            'rate' => 2400.0,
-            'vat' => 18,
-        ],
-        [
-            'name' => '4201-15-WI - LNG',
-            'category' => 'LNG',
-            'description' => 'Working Interest - LNG',
-            'qty' => 10000,
-            'rate' => 6.8,
-            'vat' => 20,
-        ],
-        [
-            'name' => '4201-16-WI - Product',
-            'category' => 'Product',
-            'description' => 'Working Interest - Product',
-            'qty' => 1,
-            'rate' => 22000.0,
-            'vat' => 15,
-        ],
-        // MISC Series
-        [
-            'name' => '4201-17-MISC - Oil',
-            'category' => 'Oil',
-            'description' => 'Miscellaneous Interest - Oil',
-            'qty' => 1,
-            'rate' => 4500.0,
-            'vat' => 18,
-        ],
-        [
-            'name' => '4201-18-MISC - Gas',
-            'category' => 'Gas',
-            'description' => 'Miscellaneous Interest - Gas',
-            'qty' => 150000,
-            'rate' => 0.45,
-            'vat' => 15,
-        ],
-        [
-            'name' => '4201-19-MISC - LNG',
-            'category' => 'LNG',
-            'description' => 'Miscellaneous Interest - LNG',
-            'qty' => 120,
-            'rate' => 250.0,
-            'vat' => 18,
-        ],
-        [
-            'name' => '4201-20-MISC - Product',
-            'category' => 'Product',
-            'description' => 'Miscellaneous Interest - Product',
-            'qty' => 1,
-            'rate' => 18500.0,
-            'vat' => 15,
+            'name' => '4020-20 MISC - Product Sales',
+            'description' => '4020-20 MISC - Product Sales',
+            'net_revenue' => 22000.0,
         ],
     ];
 
-    // Calculate totals
+    // Products from Product Mapping Screen - Tax values (Next 20 rows)
+    $taxProducts = [
+        ['name' => '5020-01 RI-Oil Tax', 'description' => '5020-01 RI-Oil Tax', 'net_revenue' => 3.57],
+        ['name' => '5020-02 RI-Gas Tax', 'description' => '5020-02 RI-Gas Tax', 'net_revenue' => 5.51],
+        ['name' => '5020-03 RI-LNG Tax', 'description' => '5020-03 RI-LNG Tax', 'net_revenue' => 1.76],
+        ['name' => '5020-04 RI-Product Tax', 'description' => '5020-04 RI-Product Tax', 'net_revenue' => 2.79],
+        ['name' => '5020-05 ORRI-Oil Tax', 'description' => '5020-05 ORRI-Oil Tax', 'net_revenue' => 35.88],
+        ['name' => '5020-06 ORRI-Gas Tax', 'description' => '5020-06 ORRI-Gas Tax', 'net_revenue' => 39.64],
+        ['name' => '5020-07 ORRI-LNG Tax', 'description' => '5020-07 ORRI-LNG Tax', 'net_revenue' => 4.17],
+        ['name' => '5020-08 ORRI-Product Tax', 'description' => '5020-08 ORRI-Product Tax', 'net_revenue' => 9.2],
+        ['name' => '5020-09 OR-Oil Tax', 'description' => '5020-09 OR-Oil Tax', 'net_revenue' => 30.26],
+        ['name' => '5020-10 OR-Gas Tax', 'description' => '5020-10 OR-Gas Tax', 'net_revenue' => 2.68],
+        ['name' => '5020-11 OR-LNG Tax', 'description' => '5020-11 OR-LNG Tax', 'net_revenue' => 8.86],
+        ['name' => '5020-12 OR-Product Tax', 'description' => '5020-12 OR-Product Tax', 'net_revenue' => 43.38],
+        ['name' => '5020-13 WI-Oil Tax', 'description' => '5020-13 WI-Oil Tax', 'net_revenue' => 44.78],
+        ['name' => '5020-14 WI-Gas Tax', 'description' => '5020-14 WI-Gas Tax', 'net_revenue' => 0.29],
+        ['name' => '5020-15 WI-LNG Tax', 'description' => '5020-15 WI-LNG Tax', 'net_revenue' => 18.75],
+        ['name' => '5020-16 WI-Product Tax', 'description' => '5020-16 WI-Product Tax', 'net_revenue' => 67.5],
+        ['name' => '4020-17-MISC - Oil Tax', 'description' => '4020-17-MISC - Oil Tax', 'net_revenue' => 127.5],
+        ['name' => '5020-18 MISC - Gas Tax', 'description' => '5020-18 MISC - Gas Tax', 'net_revenue' => 360.0],
+        ['name' => '5020-19-MISC - LNG Tax', 'description' => '5020-19-MISC - LNG Tax', 'net_revenue' => 1.02],
+        [
+            'name' => '5020-20 MISC - Product Tax',
+            'description' => '5020-20 MISC - Product Tax',
+            'net_revenue' => 3300.0,
+        ],
+    ];
+
+    // Combine both arrays to create 40 rows total
+    $products = array_merge($salesProducts, $taxProducts);
+
+    // Calculate totals based on net_revenue
     $subtotal = 0;
-    $taxBreakdown = ['15' => 0, '18' => 0, '20' => 0];
 
     foreach ($products as &$product) {
-        $amount = $product['qty'] * $product['rate'];
-        $tax = $amount * ($product['vat'] / 100);
-        $product['amount'] = $amount; // Net amount
-        $product['tax'] = $tax;
-        $product['total'] = $amount + $tax; // Gross amount
-
-        $subtotal += $amount;
-        $taxBreakdown[$product['vat']] += $tax;
+        $subtotal += $product['net_revenue'];
     }
 
-    $totalTax = array_sum($taxBreakdown);
+    // For demo purposes: assuming 15% tax on subtotal
+    $totalTax = $subtotal * 0.15;
     $grandTotal = $subtotal + $totalTax;
 
     // Hardcoded USD->AED rate for preview
@@ -208,80 +91,121 @@
 @endphp
 
 <x-layout title="Invoice Preview">
-    <div class="bg-white p-8 mx-auto">
+    <div class="bg-white mx-auto">
 
-        <!-- Header Section -->
-        <div class="flex gap-20 mb-8">
-            <!-- Left Column: Customer & Addresses -->
-            <div class="flex-1 space-y-6">
+        <!-- Top Header Section (New) -->
+        <div class="flex justify-between items-start p-8">
+            <!-- Left: Title & Company Info -->
+            <div class="space-y-4">
+                <h1 class="text-2xl font-bold text-[#0077c5] uppercase tracking-wide">Invoice</h1>
+
+                <div class="text-xs text-gray-900 space-y-1">
+                    <p class="font-bold">Craig's Design and Landscaping Services</p>
+                    <p>noreply@quickbooks.com</p>
+                    <p>123 Sierra Way</p>
+                    <p>San Pablo CA 87999</p>
+
+                    <div class="pt-2">
+                        <button class="text-[#0077c5] font-medium hover:underline">Edit company</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Balance & Logo -->
+            <div class="space-y-3 text-right">
+                <div class="text-sm">
+                    <span class="text-gray-500">Balance due (hidden):</span>
+                    <span class="font-bold text-gray-900">$0.00</span>
+                </div>
+
+                <div
+                    class="w-[180px] h-[80px] flex items-center justify-center ml-auto bg-white">
+                    <svg class="w-24 h-24" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 0L64 32L32 64L0 32L32 0Z" fill="#D6A77A" />
+                        <path d="M32 8L56 32L32 56L8 32L32 8Z" fill="#F7F9F7" />
+                        <path d="M32 16L48 32L32 48L16 32L32 16Z" fill="#2A6F6A" />
+                    </svg>
+                </div>
+                <div class="flex justify-center">
+                    <span class="font-bold text-xl whitespace-nowrap">Mineral Link</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Fields Section -->
+        <div class="space-y-6 bg-[#EBF4FA] p-8">
+
+            <!-- Customer & Email Row (Full Width / stacked) -->
+            <div class="grid grid-cols-1 gap-4 max-w-4xl">
                 <!-- Customer Dropdown -->
-                <div class="relative">
+                <div class="relative w-1/3">
                     <select disabled
-                        class="w-1/2 px-3 py-2 bg-white border border-gray-300 rounded text-sm text-gray-900 appearance-none bg-no-repeat bg-[right_0.5rem_center] bg-[length:1em_1em] opacity-80"
+                        class="w-full px-3 py-1 bg-white border border-gray-300 rounded text-sm text-gray-900 appearance-none bg-no-repeat bg-[right_0.5rem_center] bg-[length:1em_1em] opacity-80"
                         style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');">
                         <option selected>{{ $billTo['name'] }}</option>
                     </select>
                 </div>
 
                 <!-- Email Input -->
-                <div class="relative">
+                <div class="relative w-2/3">
                     <input type="email" value="{{ $billTo['email'] }}" disabled
-                        class="w-full px-3 py-2 border border-gray-300 rounded text-sm text-gray-900 bg-white" />
+                        class="w-full px-3 py-1 border border-gray-300 rounded text-sm text-gray-900 bg-white" />
                     <button class="text-[#0077c5] text-xs font-medium mt-1 hover:underline">3 Cc/1 Bcc</button>
                     <!-- Small icon placeholder inside input -->
-                    <div class="absolute right-3 top-2.5 text-gray-400">
+                    <div class="absolute right-3 top-1 text-gray-400">
                         <i class="fa-regular fa-envelope"></i>
-                    </div>
-                </div>
-
-                <!-- Billing Address -->
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-gray-500 text-xs mb-1">Bill to</label>
-                        <textarea disabled rows="4"
-                            class="w-full px-3 py-2 border border-gray-300 rounded text-sm text-gray-900 bg-white resize-none font-sans">{{ $billTo['address'] }}</textarea>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Column: Invoice Details -->
-            <div class="w-[400px] space-y-4 pt-4">
-                <div class="flex items-center gap-4">
-                    <label class="w-32 text-gray-500 text-xs">Invoice no.</label>
-                    <input type="text" value="{{ $invoice['number'] }}" disabled
-                        class="flex-1 px-3 py-1.5 border border-gray-300 rounded text-sm text-gray-900 bg-white" />
+            <!-- Bill To & Details Split -->
+            <div class="flex gap-20 items-start pt-2">
+
+                <!-- Left: Bill To -->
+                <div class="w-1/3">
+                    <label class="block text-gray-500 text-xs mb-1">Bill to</label>
+                    <textarea disabled rows="3"
+                        class="w-full px-3 py-2 border border-gray-300 rounded text-sm text-gray-900 bg-white resize-none font-sans">{{ $billTo['address'] }}</textarea>
                 </div>
-                <div class="flex items-center gap-4">
-                    <label class="w-32 text-gray-500 text-xs">Terms</label>
-                    <div class="flex-1 relative">
-                        <select disabled
-                            class="w-full px-3 py-1.5 border border-gray-300 rounded text-sm text-gray-900 bg-white appearance-none bg-no-repeat bg-[right_0.5rem_center] bg-[length:0.8em_0.8em]"
-                            style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');">
-                            <option selected>{{ $invoice['terms'] }}</option>
-                        </select>
+
+                <!-- Right: Terms & Dates (Aligned to right of Bill To) -->
+                <div class="w-[300px] space-y-3">
+                    <!-- Invoice No Removed -->
+
+                    <div class="flex items-center gap-4 mb-3">
+                        <label class="w-24 text-gray-500 text-xs text-right">Terms</label>
+                        <div class="flex-1 relative">
+                            <select disabled
+                                class="w-full px-3 py-1 border border-gray-300 rounded text-sm text-gray-900 bg-white appearance-none bg-no-repeat bg-[right_0.5rem_center] bg-[length:0.8em_0.8em]"
+                                style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');">
+                                <option selected>{{ $invoice['terms'] }}</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="flex items-center gap-4">
-                    <label class="w-32 text-gray-500 text-xs">Invoice date</label>
-                    <div class="flex-1 relative">
-                        <input type="text" value="{{ date('m/d/Y', strtotime($invoice['date'])) }}" disabled
-                            class="w-full px-3 py-1.5 border border-gray-300 rounded text-sm text-gray-900 bg-white" />
-                        <i class="fa-regular fa-calendar absolute right-3 top-2 text-gray-400"></i>
+
+                    <div class="flex items-center gap-4 mb-3">
+                        <label class="w-24 text-gray-500 text-xs text-right">Invoice date</label>
+                        <div class="flex-1 relative">
+                            <input type="text" value="{{ date('m/d/Y', strtotime($invoice['date'])) }}" disabled
+                                class="w-full px-3 py-1 border border-gray-300 rounded text-sm text-gray-900 bg-white" />
+                            <i class="fa-regular fa-calendar absolute right-3 top-1 text-gray-400"></i>
+                        </div>
                     </div>
-                </div>
-                <div class="flex items-center gap-4">
-                    <label class="w-32 text-gray-500 text-xs">Due date</label>
-                    <div class="flex-1 relative">
-                        <input type="text" value="{{ date('m/d/Y', strtotime($invoice['due_date'])) }}" disabled
-                            class="w-full px-3 py-1.5 border border-gray-300 rounded text-sm text-gray-900 bg-white" />
-                        <i class="fa-regular fa-calendar absolute right-3 top-2 text-gray-400"></i>
+
+                    <div class="flex items-center gap-4">
+                        <label class="w-24 text-gray-500 text-xs text-right">Due date</label>
+                        <div class="flex-1 relative">
+                            <input type="text" value="{{ date('m/d/Y', strtotime($invoice['due_date'])) }}" disabled
+                                class="w-full px-3 py-1 border border-gray-300 rounded text-sm text-gray-900 bg-white" />
+                            <i class="fa-regular fa-calendar absolute right-3 top-1 text-gray-400"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Tax Registration Row -->
-        <div class="flex gap-8 mb-8">
+        <div class="flex gap-8 p-8">
             <div class="w-1/2">
                 <label class="block text-gray-500 text-xs mb-1">Tax Registration Number</label>
                 <input type="text" disabled
@@ -297,12 +221,12 @@
         </div>
 
         <!-- Invoice Amounts Selector -->
-        <div class="mb-6">
+        <div class="p-8">
             <label class="block text-gray-500 text-xs mb-1">Invoice amounts <span
                     class="text-gray-400 font-normal">(hidden)</span></label>
             <div class="relative w-1/3">
                 <select disabled
-                    class="w-full px-3 py-2 border border-gray-300 rounded text-sm text-gray-900 bg-white appearance-none bg-no-repeat bg-[right_0.75rem_center] bg-[length:0.8em_0.8em]"
+                    class="w-full px-3 py-1 border border-gray-300 rounded text-sm text-gray-900 bg-white appearance-none bg-no-repeat bg-[right_0.75rem_center] bg-[length:0.8em_0.8em]"
                     style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');">
                     <option selected>Exclusive of Tax</option>
                 </select>
@@ -310,10 +234,17 @@
         </div>
 
         <!-- Products Table -->
-        <div class="overflow-x-auto mb-8 border border-gray-300 rounded-sm">
+        <div class="overflow-x-auto p-8">
             <table class="w-full">
                 <thead class="bg-gray-50 border-b border-gray-200">
                     <tr>
+                        <!-- Two empty columns at the start -->
+                        <th
+                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase w-12 border-r border-gray-200">
+                        </th>
+                        <th
+                            class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase w-12 border-r border-gray-200">
+                        </th>
                         <th
                             class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase w-12 border-r border-gray-200">
                             #</th>
@@ -323,7 +254,7 @@
                             Service Date</th>
                         <th
                             class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase border-r border-gray-200">
-                            Product or service</th>
+                            Product/Service</th>
                         <th
                             class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase border-r border-gray-200">
                             Description</th>
@@ -333,15 +264,18 @@
                         <th
                             class="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase w-28 border-r border-gray-200">
                             Rate</th>
-                        <th
-                            class="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase w-28 border-r border-gray-200">
-                            VAT</th>
+                        <!-- VAT column removed -->
                         <th class="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase w-32">Amount</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
                     @foreach ($products as $index => $product)
                         <tr class="hover:bg-blue-50/30 transition-colors">
+                            <!-- Two empty columns at the start -->
+                            <td class="px-4 py-2 border-r border-gray-200">
+                            </td>
+                            <td class="px-4 py-2 border-r border-gray-200">
+                            </td>
                             <td class="px-4 py-2 border-r border-gray-200">
                                 <span class="text-sm text-gray-500">{{ $index + 1 }}</span>
                             </td>
@@ -355,21 +289,17 @@
                                 <span class="text-sm text-gray-600">{{ $product['description'] }}</span>
                             </td>
                             <td class="px-4 py-2 text-right border-r border-gray-200">
-                                <span class="text-sm text-gray-900">{{ number_format($product['qty']) }}</span>
+                                <span class="text-sm text-gray-900">1</span>
                             </td>
+                            <!-- Rate column: net_revenue without $ sign -->
                             <td class="px-4 py-2 text-right border-r border-gray-200">
                                 <span
-                                    class="text-sm text-gray-900 text-gray-400 text-right">{{ number_format($product['rate'], 2) }}</span>
+                                    class="text-sm text-gray-900">{{ number_format($product['net_revenue'], 2) }}</span>
                             </td>
-                            <td class="px-4 py-2 text-right border-r border-gray-200">
-                                <div class="text-right">
-                                    <span class="text-sm text-gray-900">{{ number_format($product['tax'], 2) }}</span>
-                                    <span class="text-xs text-gray-500 block">({{ $product['vat'] }}%)</span>
-                                </div>
-                            </td>
+                            <!-- Amount column: net_revenue with $ sign (VAT column removed) -->
                             <td class="px-4 py-2 text-right">
                                 <span
-                                    class="text-sm font-semibold text-gray-900">{{ number_format($product['total'], 2) }}</span>
+                                    class="text-sm font-semibold text-gray-900">${{ number_format($product['net_revenue'], 2) }}</span>
                             </td>
                         </tr>
                     @endforeach
@@ -378,7 +308,7 @@
         </div>
 
         <!-- Bottom Section: Redesigned -->
-        <div class="grid grid-cols-2 gap-20">
+        <div class="grid grid-cols-2 gap-20 p-8">
             <!-- Left: Notes/Attachments (Matching uploaded_image_0) -->
             <div class="space-y-6">
                 <h4 class="text-sm font-semibold text-gray-800">Customer payment options</h4>
@@ -387,7 +317,7 @@
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Note to customer</label>
                     <textarea disabled rows="3"
-                        class="w-full px-3 py-2 border border-gray-300 rounded text-sm text-gray-600 bg-white resize-none">Thank you for your business. Payment is due within 30 days. Please include invoice number with your payment.</textarea>
+                        class="w-full px-3 py-2 border border-gray-300 rounded text-sm text-gray-600 bg-white resize-none"></textarea>
                 </div>
 
                 <!-- Memo -->
@@ -398,39 +328,12 @@
                         class="w-full px-3 py-2 border border-gray-300 rounded text-sm text-gray-600 bg-white resize-none"></textarea>
                 </div>
 
-                <!-- Attachments Section -->
                 <div>
-                    <div class="flex items-center justify-between mb-2">
-                        <label class="block text-sm font-semibold text-gray-700">Attachments</label>
-                        <label class="flex items-center text-xs text-gray-500 gap-1">
-                            <input type="checkbox" disabled class="rounded border-gray-300 text-[#0077c5]">
-                            Select All
-                        </label>
-                    </div>
-
-                    <div class="space-y-3">
-                        <!-- File Item -->
-                        <div class="flex items-start justify-between">
-                            <div class="flex items-start gap-2">
-                                <input type="checkbox" checked disabled
-                                    class="mt-1 rounded border-gray-300 text-[#0077c5]">
-                                <div>
-                                    <p class="text-sm text-[#0077c5] hover:underline cursor-pointer">NPD-Mingora
-                                        SalesTrack - Service Agreement.pdf</p>
-                                    <p class="text-xs text-gray-500">Saudi PJP Company Ltd - Sep 14, 2022.pdf</p>
-                                    <p class="text-xs text-gray-400">344KB</p>
-                                </div>
-                            </div>
-                            <button class="text-gray-400 hover:text-gray-600"><i
-                                    class="fa-solid fa-xmark"></i></button>
-                        </div>
-
-                        <!-- Add Attachment dashed Box -->
-                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 py-8 text-center bg-white">
-                            <button class="text-[#0077c5] font-semibold text-sm hover:underline">Add
-                                attachment</button>
-                            <p class="text-xs text-gray-500 mt-1">Max file size: 20 MB</p>
-                        </div>
+                    <!-- Add Attachment dashed Box -->
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 py-8 text-center bg-white">
+                        <button class="text-[#0077c5] font-semibold text-sm hover:underline">Add
+                            attachment</button>
+                        <p class="text-xs text-gray-500 mt-1">Max file size: 20 MB</p>
                     </div>
                 </div>
             </div>
@@ -492,11 +395,12 @@
         </div>
 
         <!-- Footer Actions (Unstuck / Static) -->
-        <div class="mt-12 border-t border-gray-300 pt-6 flex justify-end items-center">
-            
+        <div class="mt-6 border-t border-gray-300 pt-6 flex justify-end items-center p-8">
+
             <div class="pr-4 space-x-2">
                 <button
-                    class="bg-brand-teal text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-brand-teal/90 transition-colors text-sm flex items-center">Post to QuickBooks</button>
+                    class="bg-brand-teal text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-brand-teal/90 transition-colors text-sm flex items-center">Post
+                    to QuickBooks</button>
             </div>
         </div>
 
