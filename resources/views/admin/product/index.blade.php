@@ -5,7 +5,6 @@
             background: #2A6F6A !important;
             color: white !important;
         }
-        
     </style>
 
     <section id="tabs_and_actions_row" class="bg-white rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-6 py-3 mb-6">
@@ -479,7 +478,7 @@
 
 
 
-        <div class="flex justify-end items-center space-x-4 pb-[10px] pr-[20px]">
+        <div class="px-8 py-6 bg-gray-50 border-t gap-3 border-gray-200 flex justify-end">
             <div class="relative">
 
                 <button
@@ -503,202 +502,204 @@
                 <i class="fa-solid fa-xmark fa-lg"></i>
             </button>
         </div>
-        <div class="px-8 py-8 space-y-4">
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Product Name <span
-                        class="text-red-500">*</span></label>
-                <input type="text" placeholder="Enter product name"
-                    class="px-[8px] rounded-[14px] w-full h-11 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
+        <div>
+            <div class="px-8 py-8 space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Product Name <span
+                            class="text-red-500">*</span></label>
+                    <input type="text" placeholder="Enter product name"
+                        class="px-[8px] rounded-[14px] w-full h-11 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Unit</label>
+                    <select
+                        class="px-[8px] rounded-[14px] w-full h-11 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
+                        <option>BBL</option>
+                        <option>MCF</option>
+                        <option>GAL</option>
+                    </select>
+                </div>
             </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Unit</label>
-                <select
-                    class="px-[8px] rounded-[14px] w-full h-11 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
-                    <option>BBL</option>
-                    <option>MCF</option>
-                    <option>GAL</option>
-                </select>
-            </div>
 
 
 
 
-        <div class="flex justify-end items-center space-x-4 pb-[10px] pr-[20px]">
-            <div class="relative">
+            <div class="px-8 py-6 bg-gray-50 border-t gap-3 border-gray-200 flex justify-end">
+                <div class="relative">
 
-                <button
-                    class="modal-close bg-transparent border border-brand-teal text-brand-teal font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-teal/90 hover:text-white transition-colors text-sm">Cancel</button>
+                    <button
+                        class="modal-close bg-transparent border border-brand-teal text-brand-teal font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-teal/90 hover:text-white transition-colors text-sm">Cancel</button>
+                    </button>
+                </div>
+                <button id="create-mapping-btn"
+                    class="bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">
+                    Add
+                    Product
                 </button>
             </div>
-            <button id="create-mapping-btn"
-                class="bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">
-                Add
-                Product
-            </button>
         </div>
     </div>
-</div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const filterTabs = document.querySelectorAll('.filter-tab');
-        const productRows = document.querySelectorAll('.product-row');
-        const allRows = Array.from(productRows);
-        const activeBtn = document.querySelector('.active-btn');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            const productRows = document.querySelectorAll('.product-row');
+            const allRows = Array.from(productRows);
+            const activeBtn = document.querySelector('.active-btn');
 
-        const viewModal = document.getElementById('view-modal');
-        const editModal = document.getElementById('edit-modal');
-        const addModal = document.getElementById('add-modal');
-        const addProductBtn = document.getElementById('add-product-btn');
+            const viewModal = document.getElementById('view-modal');
+            const editModal = document.getElementById('edit-modal');
+            const addModal = document.getElementById('add-modal');
+            const addProductBtn = document.getElementById('add-product-btn');
 
-        // Pagination elements
-        const rowsPerPageSelect = document.getElementById('rows-per-page');
-        const startIndexEl = document.getElementById('start-index');
-        const endIndexEl = document.getElementById('end-index');
-        const totalEntriesEl = document.getElementById('total-entries');
-        const paginationNumbersEl = document.getElementById('pagination-numbers');
-        const prevPageBtn = document.getElementById('prev-page');
-        const nextPageBtn = document.getElementById('next-page');
+            // Pagination elements
+            const rowsPerPageSelect = document.getElementById('rows-per-page');
+            const startIndexEl = document.getElementById('start-index');
+            const endIndexEl = document.getElementById('end-index');
+            const totalEntriesEl = document.getElementById('total-entries');
+            const paginationNumbersEl = document.getElementById('pagination-numbers');
+            const prevPageBtn = document.getElementById('prev-page');
+            const nextPageBtn = document.getElementById('next-page');
 
-        let currentPage = 1;
-        let rowsPerPage = parseInt(rowsPerPageSelect.value);
+            let currentPage = 1;
+            let rowsPerPage = parseInt(rowsPerPageSelect.value);
 
-        // Initialize pagination
-        function renderPagination() {
-            const totalRows = allRows.length;
-            const totalPages = Math.ceil(totalRows / rowsPerPage);
+            // Initialize pagination
+            function renderPagination() {
+                const totalRows = allRows.length;
+                const totalPages = Math.ceil(totalRows / rowsPerPage);
 
-            // Ensure current page is valid
-            if (currentPage > totalPages) currentPage = totalPages || 1;
-            if (currentPage < 1) currentPage = 1;
+                // Ensure current page is valid
+                if (currentPage > totalPages) currentPage = totalPages || 1;
+                if (currentPage < 1) currentPage = 1;
 
-            const startIndex = (currentPage - 1) * rowsPerPage;
-            const endIndex = Math.min(startIndex + rowsPerPage, totalRows);
+                const startIndex = (currentPage - 1) * rowsPerPage;
+                const endIndex = Math.min(startIndex + rowsPerPage, totalRows);
 
-            // Hide all rows first
-            allRows.forEach(row => row.style.display = 'none');
+                // Hide all rows first
+                allRows.forEach(row => row.style.display = 'none');
 
-            // Show only current page rows
-            for (let i = startIndex; i < endIndex; i++) {
-                allRows[i].style.display = '';
-            }
+                // Show only current page rows
+                for (let i = startIndex; i < endIndex; i++) {
+                    allRows[i].style.display = '';
+                }
 
-            // Update info text
-            startIndexEl.textContent = totalRows === 0 ? 0 : startIndex + 1;
-            endIndexEl.textContent = endIndex;
-            totalEntriesEl.textContent = totalRows;
+                // Update info text
+                startIndexEl.textContent = totalRows === 0 ? 0 : startIndex + 1;
+                endIndexEl.textContent = endIndex;
+                totalEntriesEl.textContent = totalRows;
 
-            // Update button states
-            prevPageBtn.disabled = currentPage === 1;
-            nextPageBtn.disabled = currentPage === totalPages || totalPages === 0;
+                // Update button states
+                prevPageBtn.disabled = currentPage === 1;
+                nextPageBtn.disabled = currentPage === totalPages || totalPages === 0;
 
-            // Render page numbers
-            paginationNumbersEl.innerHTML = '';
-            for (let i = 1; i <= totalPages; i++) {
-                const btn = document.createElement('button');
-                btn.className = `px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                // Render page numbers
+                paginationNumbersEl.innerHTML = '';
+                for (let i = 1; i <= totalPages; i++) {
+                    const btn = document.createElement('button');
+                    btn.className = `px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                     i === currentPage 
                         ? 'bg-brand-teal text-white border border-brand-teal' 
                         : 'bg-white text-gray-600 border border-gray-300 hover:bg-gray-50'
                 }`;
-                btn.textContent = i;
-                btn.addEventListener('click', () => {
-                    currentPage = i;
-                    renderPagination();
-                });
-                paginationNumbersEl.appendChild(btn);
+                    btn.textContent = i;
+                    btn.addEventListener('click', () => {
+                        currentPage = i;
+                        renderPagination();
+                    });
+                    paginationNumbersEl.appendChild(btn);
+                }
             }
-        }
 
-        // Event listeners for pagination
-        rowsPerPageSelect.addEventListener('change', (e) => {
-            rowsPerPage = parseInt(e.target.value);
-            currentPage = 1;
-            renderPagination();
-        });
-
-        prevPageBtn.addEventListener('click', () => {
-            if (currentPage > 1) {
-                currentPage--;
+            // Event listeners for pagination
+            rowsPerPageSelect.addEventListener('change', (e) => {
+                rowsPerPage = parseInt(e.target.value);
+                currentPage = 1;
                 renderPagination();
-            }
-        });
-
-        nextPageBtn.addEventListener('click', () => {
-            const totalPages = Math.ceil(allRows.length / rowsPerPage);
-            if (currentPage < totalPages) {
-                currentPage++;
-                renderPagination();
-            }
-        });
-
-        // Initialize
-        renderPagination();
-
-        // Modal logic
-        document.querySelectorAll('.view-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                viewModal.classList.remove('hidden');
-                viewModal.classList.add('flex');
             });
-        });
 
-        document.querySelectorAll('.edit-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
+            prevPageBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderPagination();
+                }
+            });
+
+            nextPageBtn.addEventListener('click', () => {
+                const totalPages = Math.ceil(allRows.length / rowsPerPage);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderPagination();
+                }
+            });
+
+            // Initialize
+            renderPagination();
+
+            // Modal logic
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    viewModal.classList.remove('hidden');
+                    viewModal.classList.add('flex');
+                });
+            });
+
+            document.querySelectorAll('.edit-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    editModal.classList.remove('hidden');
+                    editModal.classList.add('flex');
+                });
+            });
+
+            document.querySelector('.edit-from-view')?.addEventListener('click', () => {
+                viewModal.classList.add('hidden');
+                viewModal.classList.remove('flex');
                 editModal.classList.remove('hidden');
                 editModal.classList.add('flex');
             });
-        });
 
-        document.querySelector('.edit-from-view')?.addEventListener('click', () => {
-            viewModal.classList.add('hidden');
-            viewModal.classList.remove('flex');
-            editModal.classList.remove('hidden');
-            editModal.classList.add('flex');
-        });
+            addProductBtn.addEventListener('click', () => {
+                addModal.classList.remove('hidden');
+                addModal.classList.add('flex');
+            });
 
-        addProductBtn.addEventListener('click', () => {
-            addModal.classList.remove('hidden');
-            addModal.classList.add('flex');
-        });
+            document.querySelectorAll('.modal-close').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.closest('.fixed').classList.add('hidden');
+                    this.closest('.fixed').classList.remove('flex');
+                });
+            });
 
-        document.querySelectorAll('.modal-close').forEach(btn => {
-            btn.addEventListener('click', function() {
-                this.closest('.fixed').classList.add('hidden');
-                this.closest('.fixed').classList.remove('flex');
+            document.querySelectorAll('.fixed').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.classList.add('hidden');
+                        this.classList.remove('flex');
+                    }
+                });
             });
         });
 
-        document.querySelectorAll('.fixed').forEach(modal => {
-            modal.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.classList.add('hidden');
-                    this.classList.remove('flex');
-                }
-            });
+        const toggleCheckbox = document.getElementById("status-toggle");
+        const productRows = document.querySelectorAll(".product-row");
+        const toggle = document.querySelector(".in-active-btn");
+
+        // Default: show only active rows
+        productRows.forEach(row => {
+            row.style.display = row.dataset.status === "active" ? "" : "none";
         });
-    });
 
-    const toggleCheckbox = document.getElementById("status-toggle");
-    const productRows = document.querySelectorAll(".product-row");
-    const toggle = document.querySelector(".in-active-btn");
-
-    // Default: show only active rows
-    productRows.forEach(row => {
-        row.style.display = row.dataset.status === "active" ? "" : "none";
-    });
-
-    toggleCheckbox.addEventListener("change", () => {
-        if (toggleCheckbox.checked) {
-            // Show both active and inactive rows
-            productRows.forEach(row => {
-                row.style.display = ""; // show all rows
-            });
-        } else {
-            // Show only active rows
-            productRows.forEach(row => {
-                row.style.display = row.dataset.status === "active" ? "" : "none";
-            });
-        }
-    });
-</script>
+        toggleCheckbox.addEventListener("change", () => {
+            if (toggleCheckbox.checked) {
+                // Show both active and inactive rows
+                productRows.forEach(row => {
+                    row.style.display = ""; // show all rows
+                });
+            } else {
+                // Show only active rows
+                productRows.forEach(row => {
+                    row.style.display = row.dataset.status === "active" ? "" : "none";
+                });
+            }
+        });
+    </script>

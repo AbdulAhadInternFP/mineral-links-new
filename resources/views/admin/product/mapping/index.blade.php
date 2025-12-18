@@ -346,20 +346,23 @@
          </div>
 
          <!-- Body -->
-         <div class="form-container">
-             <form id="mapping-form" class="form-space">
-
-                 <!-- Interest Type -->
-                 <div class="form-group">
-                     <label>Interest Type</label> <!-- Removed 'for' to avoid conflict -->
+         <div class="">
+             <form id="mapping-form" class="">
+               <div class="p-8 space-y-5">  <!-- Interest Type -->
+                 <div >
+                     <label class="block text-sm font-medium text-gray-700 mb-2">Interest Type</label>
                      <div class="flex items-center gap-2" id="interest-wrapper">
-                         <select id="interest-type" class="form-select flex-1">
-                             <option value="" selected disabled>Select interest type</option>
-                         </select>
-                         <input type="text" id="interest-custom" class="form-input flex-1 hidden"
-                             placeholder="Enter custom interest">
+                         <div class="flex-1">
+                             <select id="interest-type"
+                                 class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brand-teal text-sm">
+                                 <option value="" selected disabled>Select interest type</option>
+                             </select>
+                             <input type="text" id="interest-custom"
+                                 class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brand-teal text-sm hidden"
+                                 placeholder="Enter custom interest">
+                         </div>
                          <button type="button"
-                             class="toggle-custom-btn whitespace-nowrap text-sm font-medium text-brand-teal hover:underline"
+                             class="toggle-custom-btn whitespace-nowrap text-sm font-medium text-brand-teal hover:underline flex-shrink-0"
                              data-target="interest">
                              + Add New
                          </button>
@@ -367,28 +370,29 @@
                  </div>
 
                  <!-- Product Type -->
-                 <div class="form-group">
-                     <label>Product Type</label>
+                 <div>
+                     <label class="block text-sm font-medium text-gray-700 mb-2">Product Type</label>
                      <div class="flex items-center gap-2" id="type-wrapper">
-                         <select id="product-type" class="form-select flex-1">
-                             <option value="" selected disabled>Select product type</option>
-                         </select>
-                         <input type="text" id="type-custom" class="form-input flex-1 hidden"
-                             placeholder="Enter custom type">
+                         <div class="flex-1">
+                             <select id="product-type"
+                                 class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brand-teal text-sm">
+                                 <option value="" selected disabled>Select product type</option>
+                             </select>
+                             <input type="text" id="type-custom"
+                                 class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:border-brand-teal text-sm hidden"
+                                 placeholder="Enter custom type">
+                         </div>
                          <button type="button"
-                             class="toggle-custom-btn whitespace-nowrap text-sm font-medium text-brand-teal hover:underline"
+                             class="toggle-custom-btn whitespace-nowrap text-sm font-medium text-brand-teal hover:underline flex-shrink-0"
                              data-target="type">
                              + Add New
                          </button>
                      </div>
                  </div>
 
-
-
-
                  <!-- Preview Section -->
                  <div id="preview-section"
-                     class="preview-sections hidden bg-gray-50 rounded-xl p-4 border border-gray-200">
+                     class="preview-sections hidden   bg-gray-50 rounded-xl p-4 border border-gray-200">
                      <h4 class="text-sm font-semibold text-gray-700 mb-2">Preview</h4>
                      <div class="space-y-2">
                          <div class="flex items-center justify-between text-sm">
@@ -401,23 +405,17 @@
                          </div>
                      </div>
                  </div>
-
-                 <!-- Footer -->
-                 <div class="flex justify-end gap-2">
-
-                     {{-- <button  class="btn-primary">Create Mapping</button> --}}
-
-
+</div>
+                 <!-- Footer Area (inside the p-8 for consistency with spacing, but styled as extra footer) -->
+                   <div class="px-8 py-6 gap-3 bg-gray-50 border-t border-gray-200 flex justify-end">
                      <button type="button" id="modal-cancel-btn"
-                         class="bg-transparent border border-brand-teal text-brand-teal font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-teal/90 hover:text-white transition-colors text-sm">Cancel</button>
+                         class="bg-transparent border border-gray-300 text-gray-700 font-semibold px-5 py-2.5 rounded-lg hover:bg-gray-100 transition-colors text-sm">Cancel</button>
                      <button id="create-mapping-btn" type="submit"
-                         class="create-mapping-submit-btn bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm cursor-not-allowed">Create
+                         class="create-mapping-submit-btn cursor-not-allowed bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">Create
                          Mapping</button>
                  </div>
-
              </form>
          </div>
-
      </div>
  </div>
  <script>
@@ -903,84 +901,84 @@
 
 
          // --- Toggle Logic ---
-        toggleBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const target = this.dataset.target; // 'interest' or 'type'
-                const wrapper = document.getElementById(target + '-wrapper');
-                const select = wrapper.querySelector('select');
-                const input = wrapper.querySelector('input');
-                const selectContainer = wrapper.querySelector(
-                    '.select2-container'); // Select2 wrapper
+         toggleBtns.forEach(btn => {
+             btn.addEventListener('click', function() {
+                 const target = this.dataset.target; // 'interest' or 'type'
+                 const wrapper = document.getElementById(target + '-wrapper');
+                 const select = wrapper.querySelector('select');
+                 const input = wrapper.querySelector('input');
+                 const selectContainer = wrapper.querySelector(
+                     '.select2-container'); // Select2 wrapper
 
-                if (input.classList.contains('hidden')) {
-                    // Switch to Custom Input
-                    if (selectContainer) selectContainer.style.display = 'none';
-                    select.style.display = 'none';
-                    select.classList.add('hidden');
+                 if (input.classList.contains('hidden')) {
+                     // Switch to Custom Input
+                     if (selectContainer) selectContainer.style.display = 'none';
+                     select.style.display = 'none';
+                     select.classList.add('hidden');
 
-                    input.classList.remove('hidden');
-                    input.focus();
-                    this.textContent = 'Cancel';
-                    this.classList.add('text-red-500', 'hover:text-red-700');
-                    this.classList.remove('text-brand-teal');
-                } else {
-                    // Switch back to Select
-                    input.classList.add('hidden');
-                    input.value = ''; // Clear custom input
+                     input.classList.remove('hidden');
+                     input.focus();
+                     this.textContent = 'Cancel';
+                     this.classList.add('text-red-500', 'hover:text-red-700');
+                     this.classList.remove('text-brand-teal');
+                 } else {
+                     // Switch back to Select
+                     input.classList.add('hidden');
+                     input.value = ''; // Clear custom input
 
-                    if (selectContainer) {
-                        selectContainer.style.display = 'block';
-                    } else {
-                        select.style.display = 'block';
-                    }
-                    select.classList.remove('hidden');
+                     if (selectContainer) {
+                         selectContainer.style.display = 'block';
+                     } else {
+                         select.style.display = 'block';
+                     }
+                     select.classList.remove('hidden');
 
-                    this.textContent = '+ Add New';
-                    this.classList.remove('text-red-500', 'hover:text-red-700');
-                    this.classList.add('text-brand-teal');
-                }
-                updatePreview();
-            });
-        });
+                     this.textContent = '+ Add New';
+                     this.classList.remove('text-red-500', 'hover:text-red-700');
+                     this.classList.add('text-brand-teal');
+                 }
+                 updatePreview();
+             });
+         });
 
          // --- Preview Logic ---
-        function updatePreview() {
-            // Get Interest
-            let interest = interestCustom.classList.contains('hidden') ?
-                ($('#interest-type').val() || '') : interestCustom.value;
+         function updatePreview() {
+             // Get Interest
+             let interest = interestCustom.classList.contains('hidden') ?
+                 ($('#interest-type').val() || '') : interestCustom.value;
 
-            // Get Type
-            let type = typeCustom.classList.contains('hidden') ?
-                ($('#product-type').val() || '') : typeCustom.value;
+             // Get Type
+             let type = typeCustom.classList.contains('hidden') ?
+                 ($('#product-type').val() || '') : typeCustom.value;
 
-            // Get Code (may be empty)
-            let code = (codeInput?.value || '').toString().trim();
+             // Get Code (may be empty)
+             let code = (codeInput?.value || '').toString().trim();
 
-            // Show preview when at least interest and type are present
-            if (interest && type) {
-                previewSection.classList.remove('hidden');
+             // Show preview when at least interest and type are present
+             if (interest && type) {
+                 previewSection.classList.remove('hidden');
 
-                const sequence = String(document.querySelectorAll('#mapping-table-body tr').length + 1)
-                    .padStart(2, '0');
+                 const sequence = String(document.querySelectorAll('#mapping-table-body tr').length + 1)
+                     .padStart(2, '0');
 
-                const salesStr = code ? `${code}-${sequence} ${interest}-${type} Sales` :
-                    `4020-10 ${interest}-${type} Sales`;
+                 const salesStr = code ? `${code}-${sequence} ${interest}-${type} Sales` :
+                     `4020-10 ${interest}-${type} Sales`;
 
-                // Tax Code Logic: Add 1000 to Sales Code when numeric
-                let taxStr;
-                if (code && !isNaN(parseInt(code))) {
-                    const taxCodeVal = 5020;
-                    taxStr = `${taxCodeVal} ${sequence} ${interest}-${type} Tax`;
-                } else {
-                    taxStr = `5020-10 ${interest}-${type} Tax`;
-                }
+                 // Tax Code Logic: Add 1000 to Sales Code when numeric
+                 let taxStr;
+                 if (code && !isNaN(parseInt(code))) {
+                     const taxCodeVal = 5020;
+                     taxStr = `${taxCodeVal} ${sequence} ${interest}-${type} Tax`;
+                 } else {
+                     taxStr = `5020-10 ${interest}-${type} Tax`;
+                 }
 
-                document.getElementById('preview-sales').textContent = salesStr;
-                document.getElementById('preview-tax').textContent = taxStr;
-            } else {
-                previewSection.classList.add('hidden');
-            }
-        }
+                 document.getElementById('preview-sales').textContent = salesStr;
+                 document.getElementById('preview-tax').textContent = taxStr;
+             } else {
+                 previewSection.classList.add('hidden');
+             }
+         }
 
 
 
@@ -1055,69 +1053,6 @@
  </script>
 
  <style>
-     .check-symbol {
-         border: 1px solid #22C55E;
-         width: 25px;
-         height: 25px;
-         border-radius: 50%;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         margin-top: 8px;
-     }
-
-
-     /* Form Container */
-     .form-container {
-         padding: 2rem !important;
-         background-color: #ffffff !important;
-         border-radius: 1rem !important;
-         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
-         max wit: 640px !important;
-         margin: auto !important;
-         font-family: 'Inter', sans-serif !important;
-     }
-
-     /* Form spacing */
-     .form-space {
-         display: flex !important;
-         flex-direction: column !important;
-         gap: 2rem !important;
-     }
-
-     /* Form Groups */
-     .form-group label {
-         display: block !important;
-         margin-bottom: 0.5rem !important;
-         font-weight: 600 !important;
-         color: #374151 !important;
-         /* Gray-700 */
-         font-size: 0.875rem !important;
-         /* text-sm */
-     }
-
-     .form-select,
-     .form-input {
-         width: 100% !important;
-         height: 3rem !important;
-         /* 48px */
-         padding: 0 1rem !important;
-         font-size: 0.875rem !important;
-         border: 1px solid #D1D5DB !important;
-         /* Gray-300 */
-         border-radius: 1rem !important;
-         /* rounded-xl */
-         background-color: #ffffff !important;
-         color: #1F2937 !important;
-         /* Gray-800 */
-         transition: all 0.2s !important;
-         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
-     }
-
-
-
-
-
      .select2-container .select2-selection--single {
          height: 46px !important;
          border-radius: 14px !important;
