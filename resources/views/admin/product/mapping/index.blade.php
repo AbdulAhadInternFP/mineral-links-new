@@ -160,7 +160,7 @@
                  'interest' => 'MISC',
                  'type' => 'Gas',
                  'Sales' => '4020-18 MISC - Gas Sales',
-                 'Tax'=> '5020-18 MISC - Gas Tax',
+                 'Tax' => '5020-18 MISC - Gas Tax',
                  'status' => 'Active',
                  'qbo_mapped' => true,
              ],
@@ -169,7 +169,7 @@
                  'interest' => 'MISC',
                  'type' => 'LNG',
                  'Sales' => '4020-19-MISC - LNG Sales',
-                 'Tax'=> '5020-19-MISC - LNG Tax',
+                 'Tax' => '5020-19-MISC - LNG Tax',
                  'status' => 'Active',
                  'qbo_mapped' => true,
              ],
@@ -178,7 +178,7 @@
                  'interest' => 'MISC',
                  'type' => 'Product',
                  'Sales' => '4020-20 MISC - Product Sales',
-                 'Tax'=> '5020-20 MISC - Product Tax',
+                 'Tax' => '5020-20 MISC - Product Tax',
                  'status' => 'Active',
                  'qbo_mapped' => true,
              ],
@@ -260,7 +260,8 @@
                                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-teal/10 text-brand-teal">
                                      {{ $mapping['type'] }}</span>
                              </td>
-                             <td class="px-3 py-1"><span class="text-sm text-gray-700">{{ $mapping['Sales'] }}</spa Salesn>
+                             <td class="px-3 py-1"><span class="text-sm text-gray-700">{{ $mapping['Sales'] }}</spa
+                                         Salesn>
                              </td>
                              <td class="px-3 py-1"><span class="text-sm text-gray-700">{{ $mapping['Tax'] }}</spa Taxn>
                              </td>
@@ -382,11 +383,12 @@
                      </div>
                  </div>
 
-           
-                
+
+
 
                  <!-- Preview Section -->
-                 <div id="preview-section" class="hidden bg-gray-50 rounded-xl p-4 border border-gray-200">
+                 <div id="preview-section"
+                     class="preview-sections hidden bg-gray-50 rounded-xl p-4 border border-gray-200">
                      <h4 class="text-sm font-semibold text-gray-700 mb-2">Preview</h4>
                      <div class="space-y-2">
                          <div class="flex items-center justify-between text-sm">
@@ -409,7 +411,7 @@
                      <button type="button" id="modal-cancel-btn"
                          class="bg-transparent border border-brand-teal text-brand-teal font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-teal/90 hover:text-white transition-colors text-sm">Cancel</button>
                      <button id="create-mapping-btn" type="submit"
-                         class="create-mapping-submit-btn bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">Create
+                         class="create-mapping-submit-btn cursor-not-allowed bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">Create
                          Mapping</button>
                  </div>
 
@@ -449,7 +451,7 @@
 
 
 
-const submitFormBtn = document.querySelector('.create-mapping-submit-btn');
+     const submitFormBtn = document.querySelector('.create-mapping-submit-btn');
 
 
      document.addEventListener('DOMContentLoaded', function() {
@@ -462,7 +464,7 @@ const submitFormBtn = document.querySelector('.create-mapping-submit-btn');
          const cancelDelete = document.getElementById('cancel-delete');
          const confirmDelete = document.getElementById('confirm-delete');
          const deleteButtons = document.querySelectorAll('.delete-mapping');
-         
+
 
          const productRadios = document.querySelectorAll('input[name="product"]');
          const qboAddRadios = document.querySelectorAll('input[name="qbo-item-add"]');
@@ -838,16 +840,16 @@ const submitFormBtn = document.querySelector('.create-mapping-submit-btn');
      });
 
 
-// document.addEventListener('DOMContentLoaded', function () {
+     // document.addEventListener('DOMContentLoaded', function () {
 
-    
 
-// });
+
+     // });
      /* ===============================
         FORM SUBMIT → ADD ROW
         (STRUCTURE FIXED + NEW LOGIC)
      ================================ */
-    document.addEventListener('DOMContentLoaded', () => {
+     document.addEventListener('DOMContentLoaded', () => {
 
          const form = document.getElementById('mapping-form');
          const tbody = document.getElementById('mapping-table-body');
@@ -863,88 +865,126 @@ const submitFormBtn = document.querySelector('.create-mapping-submit-btn');
          const toggleBtns = document.querySelectorAll('.toggle-custom-btn');
          const previewSection = document.getElementById('preview-section');
 
+         const submitBtn = document.querySelector('.create-mapping-submit-btn');
+         submitBtn.disabled = true;
 
-        
+         function checkSelectors() {
+             console.log(submitBtn.disabled)
+             const interestValue = interestSelect.value !== "" || interestCustom.value.trim() !== "";
 
-         // --- Toggle Logic ---
-         toggleBtns.forEach(btn => {
-             btn.addEventListener('click', function() {
-                 const target = this.dataset.target; // 'interest' or 'type'
-                 const wrapper = document.getElementById(target + '-wrapper');
-                 const select = wrapper.querySelector('select');
-                 const input = wrapper.querySelector('input');
-                 const selectContainer = wrapper.querySelector(
-                     '.select2-container'); // Select2 wrapper
+             const typeValue = typeSelect.value !== "" || typeCustom.value.trim() !== "";
 
-                 if (input.classList.contains('hidden')) {
-                     // Switch to Custom Input
-                     if (selectContainer) selectContainer.style.display = 'none';
-                     select.style.display = 'none';
-                     select.classList.add('hidden');
+             submitBtn.disabled = !(interestValue && typeValue);
+             console.log('My Btn', submitBtn.disabled)
 
-                     input.classList.remove('hidden');
-                     input.focus();
-                     this.textContent = 'Cancel';
-                     this.classList.add('text-red-500', 'hover:text-red-700');
-                     this.classList.remove('text-brand-teal');
-                 } else {
-                     // Switch back to Select
-                     input.classList.add('hidden');
-                     input.value = ''; // Clear custom input
+             console.log('check...', interestValue && typeValue)
 
-                     if (selectContainer) {
-                         selectContainer.style.display = 'block';
-                     } else {
-                         select.style.display = 'block';
-                     }
-                     select.classList.remove('hidden');
-
-                     this.textContent = '+ Add New';
-                     this.classList.remove('text-red-500', 'hover:text-red-700');
-                     this.classList.add('text-brand-teal');
-                 }
-                 updatePreview();
-             });
-         });
-
-         // --- Preview Logic ---
-         function updatePreview() {
-             // Get Interest
-             let interest = interestCustom.classList.contains('hidden') ?
-                 $(interestSelect).val() : interestCustom.value;
-
-             // Get Type
-             let type = typeCustom.classList.contains('hidden') ?
-                 $(typeSelect).val() : typeCustom.value;
-
-             // Get Code
-             let code = codeInput?.value;
-
-             if (interest && type && code) {
+             if (interestValue && typeValue) {
+                 console.log('Hello...')
                  previewSection.classList.remove('hidden');
-
-                 // Calculate next sequence (mocking current length + 1)
-                 // Note: In real app, this might need more robust logic
-                 const sequence = String(document.querySelectorAll('#mapping-table-body tr').length + 1)
-                     .padStart(2, '0');
-
-                 // Generate Strings
-                 const salesStr = `${code}-${sequence} ${interest}-${type} Sales`;
-
-                 // Tax Code Logic: Add 1000 to Sales Code
-                 const taxCodeVal = parseInt(code) + 1000;
-                 const taxStr = isNaN(taxCodeVal) ? 'Err-Tax' :
-                     `${taxCodeVal}-${sequence} ${interest}-${type} Tax`;
-
-                 document.getElementById('preview-sales').textContent = salesStr;
-                 document.getElementById('preview-tax').textContent = taxStr;
-             } else {
-                 previewSection.classList.add('hidden');
+                 submitBtn.classList.remove('cursor-not-allowed');
              }
          }
+         // Select change (pass function reference, not call)
+         interestSelect.addEventListener('change', checkSelectors);
+         typeSelect.addEventListener('change', checkSelectors);
 
 
-        
+         // Also handle Select2 change events
+         $('#interest-type').on('change', checkSelectors);
+         $('#product-type').on('change', checkSelectors);
+
+         // Custom input typing
+         interestCustom.addEventListener('input', checkSelectors);
+         typeCustom.addEventListener('input', checkSelectors);
+
+         // Initialize button state
+         checkSelectors();
+
+
+         // --- Toggle Logic ---
+        toggleBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const target = this.dataset.target; // 'interest' or 'type'
+                const wrapper = document.getElementById(target + '-wrapper');
+                const select = wrapper.querySelector('select');
+                const input = wrapper.querySelector('input');
+                const selectContainer = wrapper.querySelector(
+                    '.select2-container'); // Select2 wrapper
+
+                if (input.classList.contains('hidden')) {
+                    // Switch to Custom Input
+                    if (selectContainer) selectContainer.style.display = 'none';
+                    select.style.display = 'none';
+                    select.classList.add('hidden');
+
+                    input.classList.remove('hidden');
+                    input.focus();
+                    this.textContent = 'Cancel';
+                    this.classList.add('text-red-500', 'hover:text-red-700');
+                    this.classList.remove('text-brand-teal');
+                } else {
+                    // Switch back to Select
+                    input.classList.add('hidden');
+                    input.value = ''; // Clear custom input
+
+                    if (selectContainer) {
+                        selectContainer.style.display = 'block';
+                    } else {
+                        select.style.display = 'block';
+                    }
+                    select.classList.remove('hidden');
+
+                    this.textContent = '+ Add New';
+                    this.classList.remove('text-red-500', 'hover:text-red-700');
+                    this.classList.add('text-brand-teal');
+                }
+                updatePreview();
+            });
+        });
+
+         // --- Preview Logic ---
+        function updatePreview() {
+            // Get Interest
+            let interest = interestCustom.classList.contains('hidden') ?
+                ($('#interest-type').val() || '') : interestCustom.value;
+
+            // Get Type
+            let type = typeCustom.classList.contains('hidden') ?
+                ($('#product-type').val() || '') : typeCustom.value;
+
+            // Get Code (may be empty)
+            let code = (codeInput?.value || '').toString().trim();
+
+            // Show preview when at least interest and type are present
+            if (interest && type) {
+                previewSection.classList.remove('hidden');
+                previewSection.classList.remove('cursor-not-allowed');
+
+                const sequence = String(document.querySelectorAll('#mapping-table-body tr').length + 1)
+                    .padStart(2, '0');
+
+                const salesStr = code ? `${code}-${sequence} ${interest}-${type} Sales` :
+                    `4020-10 ${interest}-${type} Sales`;
+
+                // Tax Code Logic: Add 1000 to Sales Code when numeric
+                let taxStr;
+                if (code && !isNaN(parseInt(code))) {
+                    const taxCodeVal = 5020;
+                    taxStr = `${taxCodeVal} ${sequence} ${interest}-${type} Tax`;
+                } else {
+                    taxStr = `5020-10 ${interest}-${type} Tax`;
+                }
+
+                document.getElementById('preview-sales').textContent = salesStr;
+                document.getElementById('preview-tax').textContent = taxStr;
+            } else {
+                previewSection.classList.add('hidden');
+            }
+        }
+
+
+
          // Listeners for Preview
          $('#interest-type').on('change', updatePreview);
          $('#product-type').on('change', updatePreview);
