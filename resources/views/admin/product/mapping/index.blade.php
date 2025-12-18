@@ -6,7 +6,7 @@
                  's.no' => 1,
                  'interest' => 'RI',
                  'type' => 'Oil',
-                 'Sales' => '4020-01 RI-Oil Sales Sales',
+                 'Sales' => '4020-01 RI-Oil Sales',
                  'Tax' => '5020-01 RI-Oil Tax Tax',
                  'status' => 'Active',
                  'qbo_mapped' => true,
