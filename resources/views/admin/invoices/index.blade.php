@@ -50,7 +50,7 @@
                     @php
                         $months = [];
                         $currentMonth = (int) date('n');
-                        for ($m = 1; $m <= $currentMonth; $m++) {
+                        for ($m = $currentMonth; $m >= 1; $m--) {
                             $months[] = date('F', mktime(0, 0, 0, $m, 1));
                         }
                     @endphp
