@@ -959,8 +959,6 @@
             // Show preview when at least interest and type are present
             if (interest && type) {
                 previewSection.classList.remove('hidden');
-                previewSection.classList.remove('cursor-not-allowed');
-
                 const sequence = String(document.querySelectorAll('#mapping-table-body tr').length + 1)
                     .padStart(2, '0');
 
