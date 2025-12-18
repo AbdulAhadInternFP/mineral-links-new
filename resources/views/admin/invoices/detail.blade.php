@@ -544,6 +544,14 @@
 @endphp
 
 <x-layout title="Transaction Details">
+    <section id="back_navigation" class="mb-4">
+        <a href="{{ route('admin.invoices') }}"
+            class="inline-flex items-center px-6 py-2 text-sm font-bold text-white bg-[#D6A77A] rounded-xl hover:bg-[#C59669] transition-colors shadow-sm">
+            <i class="fa-solid fa-arrow-left-long mr-2"></i>
+            <span>Back</span>
+        </a>
+    </section>
+
     <div id="reconciliation_alert"
         class="flex items-center justify-between bg-white border-l-4 border-brand-terracotta rounded-r-lg shadow-sm px-6 py-4 mb-6">
         <div class="flex items-center">
@@ -563,38 +571,42 @@
 
     <section id="tabs_and_actions_row" class="bg-white rounded-xl shadow px-6 py-3 mb-6">
         <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <button
-                    class="filter-tab active flex items-center space-x-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-brand-teal text-white transition-colors"
-                    data-filter="all">
-                    <span>All</span>
-                    <span
-                        class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold bg-white/20 text-white rounded-full">{{ $totalItems }}</span>
-                </button>
-                <button
-                    class="filter-tab flex items-center space-x-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-transparent text-gray-600 hover:bg-gray-100 transition-colors"
-                    data-filter="matched">
-                    <span>Matched</span>
-                    <span
-                        class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold bg-brand-teal/20 text-brand-teal rounded-full">{{ $matchedCount }}</span>
-                </button>
-                <button
-                    class="filter-tab flex items-center space-x-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-transparent text-gray-600 hover:bg-gray-100 transition-colors"
-                    data-filter="mismatched">
-                    <span>Mismatched</span>
-                    <span
-                        class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold bg-brand-teal/20 text-brand-teal rounded-full">{{ $mismatchedCount }}</span>
-                </button>
-            </div>
             <div class="flex items-center space-x-4">
-                <div class="relative">
-                    <input type="text" placeholder="Search items..."
-                        class="w-60 h-11 pl-10 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
-                    <i class="fa-solid fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                </div>
 
+                <div class="h-6 w-px bg-gray-200"></div>
+                <div class="flex items-center space-x-2">
+                    <button
+                        class="filter-tab active flex items-center space-x-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-brand-teal text-white transition-colors"
+                        data-filter="all">
+                        <span>All</span>
+                        <span
+                            class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold bg-white/20 text-white rounded-full">{{ $totalItems }}</span>
+                    </button>
+                    <button
+                        class="filter-tab flex items-center space-x-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-transparent text-gray-600 hover:bg-gray-100 transition-colors"
+                        data-filter="matched">
+                        <span>Matched</span>
+                        <span
+                            class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold bg-brand-teal/20 text-brand-teal rounded-full">{{ $matchedCount }}</span>
+                    </button>
+                    <button
+                        class="filter-tab flex items-center space-x-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-transparent text-gray-600 hover:bg-gray-100 transition-colors"
+                        data-filter="mismatched">
+                        <span>Mismatched</span>
+                        <span
+                            class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold bg-brand-teal/20 text-brand-teal rounded-full">{{ $mismatchedCount }}</span>
+                    </button>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Search items..."
+                            class="w-60 h-11 pl-10 pr-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
+                        <i
+                            class="fa-solid fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+
+                </div>
             </div>
-        </div>
     </section>
 
     <section id="invoices_table_section" class="bg-white rounded-xl shadow overflow-hidden">

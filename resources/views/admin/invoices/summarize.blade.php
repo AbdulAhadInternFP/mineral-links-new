@@ -1,6 +1,12 @@
 <x-layout title="Transactions Details - {{ date('F Y') }}">
 
-
+    <section id="back_navigation" class="mb-4">
+        <a href="{{ route('admin.invoice.detail') }}"
+            class="inline-flex items-center px-6 py-2 text-sm font-bold text-white bg-[#D6A77A] rounded-xl hover:bg-[#C59669] transition-colors shadow-sm">
+            <i class="fa-solid fa-arrow-left-long mr-2"></i>
+            <span>Back</span>
+        </a>
+    </section>
 
     <section id="invoices_table_section" class="bg-white rounded-xl shadow overflow-hidden">
         <div class="overflow-x-auto">
@@ -26,31 +32,27 @@
                 </thead>
                 <tbody id="invoices-table-body" class="divide-y divide-gray-200">
                     @php
-                        $companies = [
-                            'CONOCOPHILLIPS CO.',
-                            'EXXON MOBIL CORP.',
-                            'CHEVRON U.S.A. INC.',
-                            'EOG RESOURCES, INC.',
-                            'PIONEER NATURAL RES.',
-                            'OCCIDENTAL PERMIAN',
-                            'DEVON ENERGY PROD.',
-                            'DIAMONDBACK E&P',
-                            'APACHE CORPORATION',
-                            'MARATHON OIL CO.',
+                        $invoices = [
+                            ['customer' => 'CONOCOPHILLIPS CO.', 'amount' => 5820.5],
+                            ['customer' => 'EXXON MOBIL CORP.', 'amount' => 12450.0],
+                            ['customer' => 'CHEVRON U.S.A. INC.', 'amount' => 8900.25],
+                            ['customer' => 'EOG RESOURCES, INC.', 'amount' => 15670.8],
+                            ['customer' => 'PIONEER NATURAL RES.', 'amount' => 7340.0],
+                            ['customer' => 'OCCIDENTAL PERMIAN', 'amount' => 11210.45],
+                            ['customer' => 'DEVON ENERGY PROD.', 'amount' => 9850.6],
+                            ['customer' => 'DIAMONDBACK E&P', 'amount' => 13120.3],
+                            ['customer' => 'APACHE CORPORATION', 'amount' => 6540.75],
+                            ['customer' => 'MARATHON OIL CO.', 'amount' => 10980.2],
                         ];
-                        shuffle($companies);
                     @endphp
-                    @for ($i = 0; $i < 10; $i++)
-                        @php
-                            $customer = $companies[$i % count($companies)];
-                            $amount = rand(10000, 99999) / 10;
-                        @endphp
+                    @foreach ($invoices as $invoice)
                         <tr class="hover:bg-brand-sage/10 transition-colors">
                             <td class="px-6 py-1">
-                                <span class="text-sm font-medium text-gray-900">{{ $customer }}</span>
+                                <span class="text-sm font-medium text-gray-900">{{ $invoice['customer'] }}</span>
                             </td>
                             <td class="px-6 py-1 text-right">
-                                <span class="text-sm  font-medium text-gray-900">${{ number_format($amount, 2) }}</span>
+                                <span
+                                    class="text-sm font-medium text-gray-900">${{ number_format($invoice['amount'], 2) }}</span>
                             </td>
                             <td class="px-6 py-1 text-center">
                                 <a href="{{ route('admin.invoice.preview') }}"
@@ -59,7 +61,7 @@
                                 </a>
                             </td>
                         </tr>
-                    @endfor
+                    @endforeach
                 </tbody>
             </table>
         </div>

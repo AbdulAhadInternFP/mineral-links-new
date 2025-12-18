@@ -408,13 +408,13 @@
                     <select 
                         name="fund" 
                         id="fund" 
-                        class="min-w-[130px] border border-gray-300 bg-white text-gray-800 rounded px-3 py-2 focus:outline-none focus:ring-2"
+                        class="w-36 h-11 px-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-gray-600 text-sm"
                     >
                         <option value="RisingPhoenix" selected>Rising Phoenix</option>
-                        <option value="Fund1">Fund 1</option>
-                        <option value="Fund2">Fund 2</option>
-                        <option value="Fund3">Fund 3</option>
-                        <option value="Fund4">Fund 4</option>
+                        <option value="Fund1">Concophilips</option>
+                        <option value="Fund2">Rising Phoenix</option>
+                        <option value="Fund3">Concophilips</option>
+                        <option value="Fund4">Rising Phoenix</option>
                     </select>
 
 

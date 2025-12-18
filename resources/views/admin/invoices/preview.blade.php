@@ -91,6 +91,13 @@
 @endphp
 
 <x-layout title="Invoice Preview">
+        <section id="back_navigation" class="mb-4">
+  <a href="{{ route('admin.invoice.summarize') }}"
+            class="inline-flex items-center px-6 py-2 text-sm font-bold text-white bg-[#D6A77A] rounded-xl hover:bg-[#C59669] transition-colors shadow-sm">
+            <i class="fa-solid fa-arrow-left-long mr-2"></i>
+            <span>Back</span>
+        </a>
+    </section>
     <div class="bg-white mx-auto">
 
         <!-- Top Header Section (New) -->
