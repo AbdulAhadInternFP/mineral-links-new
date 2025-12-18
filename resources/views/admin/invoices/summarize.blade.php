@@ -4,19 +4,22 @@
 
     <section id="invoices_table_section" class="bg-white rounded-xl shadow overflow-hidden">
         <div class="overflow-x-auto">
-            <table class="w-full">
+            <table class="w-full table-fixed">
                 <thead class="bg-gray-50 border-b border-gray-200 sticky top-0">
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        <th
+                            class="w-1/3 px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                             <div class="flex items-center cursor-pointer">
                                 Customer Name
                                 <i class="fa-solid fa-sort ml-2 text-gray-400"></i>
                             </div>
                         </th>
-                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        <th
+                            class="w-1/3 px-6 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
                             Total Amount Received
                         </th>
-                        <th class="px-6 py-3 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                        <th
+                            class="w-1/3 px-6 py-3 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
                             Action
                         </th>
                     </tr>
@@ -46,8 +49,8 @@
                             <td class="px-6 py-1">
                                 <span class="text-sm font-medium text-gray-900">{{ $customer }}</span>
                             </td>
-                            <td class="px-6 py-1">
-                                <span class="text-sm font-medium text-gray-900">${{ number_format($amount, 2) }}</span>
+                            <td class="px-6 py-1 text-right">
+                                <span class="text-sm  font-medium text-gray-900">${{ number_format($amount, 2) }}</span>
                             </td>
                             <td class="px-6 py-1 text-center">
                                 <a href="{{ route('admin.invoice.preview') }}"
