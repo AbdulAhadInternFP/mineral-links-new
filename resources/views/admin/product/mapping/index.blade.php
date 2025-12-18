@@ -3,143 +3,183 @@
      @php
          $mappings = [
              [
+                 's.no' => 1,
                  'interest' => 'RI',
                  'type' => 'Oil',
-                 'product' => '4201-01 RI-Oil',
+                 'Sales' => '4020-01 RI-Oil Sales Sales',
+                 'Tax' => '5020-01 RI-Oil Tax Tax',
                  'status' => 'Active',
                  'qbo_mapped' => true,
              ],
              [
+                 's.no' => 2,
                  'interest' => 'RI',
                  'type' => 'Gas',
-                 'product' => '4201-02 RI-Gas',
+                 'Sales' => '4020-02 RI-Gas Sales',
+                 'Tax' => '5020-02 RI-Gas Tax',
                  'status' => 'Active',
                  'qbo_mapped' => true,
              ],
              [
+                 's.no' => 3,
                  'interest' => 'RI',
                  'type' => 'LNG',
-                 'product' => '4201-03 RI-LNG',
-                 'status' => 'Inactive',
+                 'Sales' => '4020-03 RI-LNG Sales',
+                 'Tax' => '5020-03 RI-LNG Tax',
+                 'status' => 'Active',
                  'qbo_mapped' => true,
              ],
              [
+                 's.no' => 4,
                  'interest' => 'RI',
                  'type' => 'Product',
-                 'product' => '4201-04 RI-Product',
-                 'status' => 'Active',
-                 'qbo_mapped' => false,
-             ],
-             [
-                 'interest' => 'ORRI',
-                 'type' => 'Oil',
-                 'product' => '4201-05 ORRI-Oil',
-                 'status' => 'Active',
-                 'qbo_mapped' => false,
-             ],
-             [
-                 'interest' => 'ORRI',
-                 'type' => 'Gas',
-                 'product' => '4201-06 ORRI-Gas',
-                 'status' => 'Inactive',
-                 'qbo_mapped' => true,
-             ],
-             [
-                 'interest' => 'ORRI',
-                 'type' => 'LNG',
-                 'product' => '4201-07 ORRI-LNG',
-                 'status' => 'Active',
-                 'qbo_mapped' => true,
-             ],
-             [
-                 'interest' => 'ORRI',
-                 'type' => 'Product',
-                 'product' => '4201-08 ORRI-Product',
-                 'status' => 'Active',
-                 'qbo_mapped' => true,
-             ],
-             [
-                 'interest' => 'OR',
-                 'type' => 'Oil',
-                 'product' => '4201-09 OR-Oil',
+                 'Sales' => '4020-04 RI-Product Sales',
+                 'Tax' => '5020-04 RI-Product Tax',
                  'status' => 'Inactive',
                  'qbo_mapped' => false,
              ],
              [
+                 's.no' => 5,
+                 'interest' => 'ORRI',
+                 'type' => 'Oil',
+                 'Sales' => '4020-05 ORRI-Oil Sales',
+                 'Tax' => '5020-05 ORRI-Oil Tax',
+                 'status' => 'Active',
+                 'qbo_mapped' => false,
+             ],
+             [
+                 's.no' => 6,
+                 'interest' => 'ORRI',
+                 'type' => 'Gas',
+                 'Sales' => '4020-06 ORRI-Gas Sales',
+                 'Tax' => '5020-06 ORRI-Gas Tax',
+                 'status' => 'Active',
+                 'qbo_mapped' => true,
+             ],
+             [
+                 's.no' => 7,
+                 'interest' => 'ORRI',
+                 'type' => 'LNG',
+                 'Sales' => '4020-07 ORRI-LNG Sales',
+                 'Tax' => '5020-07 ORRI-LNG Tax',
+                 'status' => 'Active',
+                 'qbo_mapped' => true,
+             ],
+             [
+                 's.no' => 8,
+                 'interest' => 'ORRI',
+                 'type' => 'Product',
+                 'Sales' => '4020-08 ORRI-Product Sales',
+                 'Tax' => '5020-08 ORRI-Product Tax',
+                 'status' => 'Active',
+                 'qbo_mapped' => true,
+             ],
+             [
+                 's.no' => 9,
+                 'interest' => 'OR',
+                 'type' => 'Oil',
+                 'Sales' => '4020-09 OR-Oil Sales',
+                 'Tax' => '5020-09 OR-Oil Tax',
+                 'status' => 'Inactive',
+                 'qbo_mapped' => false,
+             ],
+             [
+                 's.no' => 10,
                  'interest' => 'OR',
                  'type' => 'Gas',
-                 'product' => '4201-10 OR-Gas',
+                 'Sales' => '4020-10 OR-Gas Sales',
+                 'Tax' => '5020-10 OR-Gas Tax',
                  'status' => 'Active',
                  'qbo_mapped' => true,
              ],
              [
+                 's.no' => 11,
                  'interest' => 'OR',
                  'type' => 'LNG',
-                 'product' => '4201-11 OR-LNG',
+                 'Sales' => '4020-11 OR-LNG Sales',
+                 'Tax' => '5020-11 OR-LNG Tax',
                  'status' => 'Active',
                  'qbo_mapped' => true,
              ],
              [
+                 's.no' => 12,
                  'interest' => 'OR',
                  'type' => 'Product',
-                 'product' => '4201-12 OR-Product',
+                 'Sales' => '4020-12 OR-Product Sales',
+                 'Tax' => '5020-12 OR-Product Tax',
                  'status' => 'Active',
                  'qbo_mapped' => true,
              ],
              [
+                 's.no' => 13,
                  'interest' => 'WI',
                  'type' => 'Oil',
-                 'product' => '4201-13 WI-Oil',
-                 'status' => 'Inactive',
+                 'Sales' => '4020-13 WI-Oil Sales',
+                 'Tax' => '5020-13 WI-Oil Tax',
+                 'status' => 'Active',
                  'qbo_mapped' => true,
              ],
              [
+                 's.no' => 14,
                  'interest' => 'WI',
                  'type' => 'Gas',
-                 'product' => '4201-14 WI-Gas',
+                 'Sales' => '4020-14 WI-Gas Sales',
+                 'Tax' => '5020-14 WI-Gas Tax',
                  'status' => 'Active',
                  'qbo_mapped' => true,
              ],
              [
+                 's.no' => 15,
                  'interest' => 'WI',
                  'type' => 'LNG',
-                 'product' => '4201-15 WI-LNG',
+                 'Sales' => '4020-15 WI-LNG Sales',
+                 'Tax' => '5020-15 WI-LNG Tax',
                  'status' => 'Active',
                  'qbo_mapped' => true,
              ],
              [
+                 's.no' => 16,
                  'interest' => 'WI',
                  'type' => 'Product',
-                 'product' => '4201-16 WI-Product',
-                 'status' => 'Inactive',
+                 'Sales' => '4020-16 WI-Product Sales',
+                 'Tax' => '5020-16 WI-Product Tax',
+                 'status' => 'Active',
                  'qbo_mapped' => true,
              ],
              [
+                 's.no' => 17,
                  'interest' => 'MISC',
                  'type' => 'Oil',
-                 'product' => '4201-17-MISC - Oil',
+                 'Sales' => '4020-17-MISC - Oil Sales',
+                 'Tax' => '4020-17-MISC - Oil Tax',
                  'status' => 'Active',
                  'qbo_mapped' => true,
              ],
              [
+                 's.no' => 18,
                  'interest' => 'MISC',
                  'type' => 'Gas',
-                 'product' => '4201-18-MISC - Gas',
+                 'Sales' => '4020-18 MISC - Gas Sales',
+                 'Tax'=> '5020-18 MISC - Gas Tax',
                  'status' => 'Active',
                  'qbo_mapped' => true,
              ],
              [
+                 's.no' => 19,
                  'interest' => 'MISC',
                  'type' => 'LNG',
-                 'product' => '4201-19-MISC - LNG',
+                 'Sales' => '4020-19-MISC - LNG Sales',
+                 'Tax'=> '5020-19-MISC - LNG Tax',
                  'status' => 'Active',
                  'qbo_mapped' => true,
              ],
              [
+                 's.no' => 20,
                  'interest' => 'MISC',
                  'type' => 'Product',
-                 'product' => '4201-20-MISC - Product',
-                 'status' => 'Inactive',
+                 'Sales' => '4020-20 MISC - Product Sales',
+                 'Tax'=> '5020-20 MISC - Product Tax',
+                 'status' => 'Active',
                  'qbo_mapped' => true,
              ],
          ];
@@ -186,6 +226,8 @@
                  <thead class="sticky top-0 bg-gray-50 border-b border-gray-200">
                      <tr>
                          <th class="p-3 text-left text-xs font-semibold text-gray-600 uppercase tracking wie">
+                             S.No</th>
+                         <th class="p-3 text-left text-xs font-semibold text-gray-600 uppercase tracking wie">
                              <div class="flex items-center cursor-pointer">
                                  Interest Type
                                  <i class="fa-solid fa-sort ml-2 text-gray-400"></i>
@@ -195,9 +237,10 @@
                              Product Type</th>
 
                          <th class="p-3 text-left text-xs font-semibold text-gray-600 uppercase tracking wie">
-                             Product</th>
+                             Sales</th>
+
                          <th class="p-3   text-left text-xs font-semibold text-gray-600 uppercase tracking wie">
-                             Status</th>
+                             Tax</th>
                          <th class="p-3 text-left text-xs font-semibold text-gray-600 uppercase tracking wie">
                              QBO Status</th>
                          <th class="p-3 text-left text-xs font-semibold text-gray-600 uppercase tracking wie">
@@ -210,23 +253,26 @@
                          <tr class="  mapping-row hover:bg-brand-sage/10"
                              data-status="{{ strtolower($mapping['status']) }}">
                              <td class="px-3 py-1"><span
+                                     class="text-sm font-medium text-gray-800">{{ $mapping['s.no'] }}</span></td>
+                             <td class="px-3 py-1"><span
                                      class="text-sm font-medium text-gray-800">{{ $mapping['interest'] }}</span></td>
                              <td class="px-3 py-1"><span
                                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-teal/10 text-brand-teal">
                                      {{ $mapping['type'] }}</span>
                              </td>
-                             <td class="px-3 py-1"><span class="text-sm text-gray-700">{{ $mapping['product'] }}</span>
+                             <td class="px-3 py-1"><span class="text-sm text-gray-700">{{ $mapping['Sales'] }}</spa Salesn>
                              </td>
-                             <td class="px-3 py-1"><span
-                                     class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium  {{ $mapping['status'] === 'Active' ? 'bg-green-500/10 text-green-500' : 'bg-red-500/10 text-red-500' }}">
-                                     {{ $mapping['status'] }}</span>
+                             <td class="px-3 py-1"><span class="text-sm text-gray-700">{{ $mapping['Tax'] }}</spa Taxn>
                              </td>
 
-                             <td class="px-3 py-1"
-                                 @if ($mapping['qbo_mapped']) <i class="fa-solid fa-circle-check text-green-700 text-lg"></i>
+
+                             <td class="px-3 py-1">
+                                 @if ($mapping['qbo_mapped'])
+                                     <i class="fa-solid fa-circle-check text-green-700 text-lg"></i>
                                  @else
-                                     <i class="fa-solid fa-circle-xmark text-red-700 text-xl"></i> @endif
-                                 </td>
+                                     <i class="fa-solid fa-circle-xmark text-red-700 text-xl"></i>
+                                 @endif
+                             </td>
                              <td class="px-3 py-1 flex items-center gap-3">
                                  <i class="fa-solid fa-pencil text-gray-400 hover:text-gray-600 cursor-pointer"></i>
                                  <label class="relative inline-flex items-center cursor-pointer">
@@ -336,13 +382,8 @@
                      </div>
                  </div>
 
-                 <!-- Product Input -->
-                 <div class="form-group">
-                     <label for="qbo-sale">Product Code</label>
-                     <input id="qbo-sale"
-                         class="w-full py-3 rounded-xl px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm"
-                         placeholder="Enter product code eg: 4020" />
-                 </div>
+           
+                
 
                  <!-- Preview Section -->
                  <div id="preview-section" class="hidden bg-gray-50 rounded-xl p-4 border border-gray-200">
@@ -794,6 +835,7 @@
          row.remove(); // replace on save
      });
 
+     typeSelect
 
      /* ===============================
         FORM SUBMIT → ADD ROW
@@ -823,7 +865,7 @@
                  const select = wrapper.querySelector('select');
                  const input = wrapper.querySelector('input');
                  const selectContainer = wrapper.querySelector(
-                 '.select2-container'); // Select2 wrapper
+                     '.select2-container'); // Select2 wrapper
 
                  if (input.classList.contains('hidden')) {
                      // Switch to Custom Input
@@ -919,7 +961,7 @@
              const sequence = String(document.querySelectorAll('#mapping-table-body tr').length + 1)
                  .padStart(2, '0');
              const productFinal =
-             `${code}-${sequence} ${interest}-${type} Sales`; // Using Sales line as main product
+                 `${code}-${sequence} ${interest}-${type} Sales`; // Using Sales line as main product
 
              const row = document.createElement('tr');
              row.className = 'h-[40px] mapping-row hover:bg-brand-sage/10';
