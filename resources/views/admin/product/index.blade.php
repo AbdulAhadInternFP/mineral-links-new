@@ -1,18 +1,17 @@
 <x-layout title="Products">
 
     <style>
-            .in-active{
-                background: #2A6F6A !important;
-                color: white !important;
-            }
-
-           
+        .in-active {
+            background: #2A6F6A !important;
+            color: white !important;
+        }
+        
     </style>
 
     <section id="tabs_and_actions_row" class="bg-white rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-6 py-3 mb-6">
         <div class="flex items-center justify-between">
             <div class="flex items-center space-x-2">
-           
+
                 <button
                     class=" filter-tab flex items-center space-x-2 py-2.5 rounded-full text-sm font-semibold bg-transparent text-gray-600 "
                     data-filter="inactive">
@@ -21,20 +20,21 @@
                         class="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold bg-brand-teal/20 text-brand-teal rounded-full">5</span> --}}
 
 
-                        <div class="flex items-center space-x-2 ">
-                            
-                            <label class="relative inline-flex items-center cursor-pointer">
-                                <input type="checkbox" id="status-toggle" class="sr-only peer">
-                                <div class="w-11 h-6  bg-gray-300  rounded-full peer-focus:outline-none peer-checked:bg-brand-teal
+                    <div class="flex items-center space-x-2 ">
+
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="status-toggle" class="sr-only peer">
+                            <div
+                                class="w-11 h-6  bg-gray-300  rounded-full peer-focus:outline-none peer-checked:bg-brand-teal
                                             after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white
                                             after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5
                                             after:transition-all peer-checked:after:translate-x-full peer-checked:after:border-white">
-                                </div>
-                            </label>
-
-                            <span class="text-sm font-medium">Toggle to cn Active</span>
                             </div>
-                {{-- </button> --}}
+                        </label>
+
+                        <span class="text-sm font-medium">Toggle to cn Active</span>
+                    </div>
+                    {{-- </button> --}}
             </div>
             <div class="flex items-center space-x-4">
                 <div class="relative">
@@ -63,9 +63,8 @@
                             </div>
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Type</th>
-                        <th class="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Status</th>
+                            Unit</th>
+
                         <th class="px-6 py-3 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
                             Actions</th>
                     </tr>
@@ -77,28 +76,22 @@
                         </td>
                         <td class="px-6 py-2">
                             <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-teal text-white">Oil</span>
+                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-teal text-white">BBL</span>
                         </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-brand-teal text-white">Active</span>
-                        </td>
+
                         <td class="px-6 py-2">
                             <div class="flex items-center justify-center space-x-2">
-                                <button class="view-btn text-brand-teal hover:text-brand-teal transition-colors"
-                                    title="View">
-                                    <i class="fa-solid fa-eye fa-fw"></i>
-                                </button>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked class="sr-only peer">
                                     <div
                                         class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
                                     </div>
                                 </label>
+                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
+                                    title="Edit">
+                                    <i class="fa-solid fa-pencil fa-fw"></i>
+                                </button>
+
                             </div>
                         </td>
                     </tr>
@@ -109,28 +102,22 @@
                         </td>
                         <td class="px-6 py-2">
                             <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#4A90A4] text-white">Gas</span>
+                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#4A90A4] text-white">MCF</span>
                         </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-brand-teal text-white">Active</span>
-                        </td>
+
                         <td class="px-6 py-2">
                             <div class="flex items-center justify-center space-x-2">
-                                <button class="view-btn text-brand-teal hover:text-brand-teal transition-colors"
-                                    title="View">
-                                    <i class="fa-solid fa-eye fa-fw"></i>
-                                </button>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked class="sr-only peer">
                                     <div
                                         class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
                                     </div>
                                 </label>
+                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
+                                    title="Edit">
+                                    <i class="fa-solid fa-pencil fa-fw"></i>
+                                </button>
+
                             </div>
                         </td>
                     </tr>
@@ -140,28 +127,22 @@
                         </td>
                         <td class="px-6 py-2">
                             <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-terracotta text-white">Mineral</span>
+                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-terracotta text-white">GAL</span>
                         </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-brand-teal text-white">Active</span>
-                        </td>
+
                         <td class="px-6 py-2">
                             <div class="flex items-center justify-center space-x-2">
-                                <button class="view-btn text-brand-teal hover:text-brand-teal transition-colors"
-                                    title="View">
-                                    <i class="fa-solid fa-eye fa-fw"></i>
-                                </button>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked class="sr-only peer">
                                     <div
                                         class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
                                     </div>
                                 </label>
+                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
+                                    title="Edit">
+                                    <i class="fa-solid fa-pencil fa-fw"></i>
+                                </button>
+
                             </div>
                         </td>
                     </tr>
@@ -172,28 +153,23 @@
                         </td>
                         <td class="px-6 py-2">
                             <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-teal/60 text-white">Oil</span>
+                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-teal/60 text-white">BBL</span>
                         </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-red-500 text-white">Inactive</span>
-                        </td>
+
                         <td class="px-6 py-2">
                             <div class="flex items-center justify-center space-x-2">
-                                <button class="view-btn text-brand-teal hover:text-brand-teal transition-colors"
-                                    title="View">
-                                    <i class="fa-solid fa-eye fa-fw"></i>
-                                </button>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" class="sr-only peer">
                                     <div
                                         class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
                                     </div>
                                 </label>
+
+                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
+                                    title="Edit">
+                                    <i class="fa-solid fa-pencil fa-fw"></i>
+                                </button>
+
                             </div>
                         </td>
                     </tr>
@@ -203,28 +179,22 @@
                         </td>
                         <td class="px-6 py-2">
                             <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#4A90A4] text-white">Gas</span>
+                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#4A90A4] text-white">MCF</span>
                         </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-brand-teal text-white">Active</span>
-                        </td>
+
                         <td class="px-6 py-2">
                             <div class="flex items-center justify-center space-x-2">
-                                <button class="view-btn text-brand-teal hover:text-brand-teal transition-colors"
-                                    title="View">
-                                    <i class="fa-solid fa-eye fa-fw"></i>
-                                </button>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked class="sr-only peer">
                                     <div
                                         class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
                                     </div>
                                 </label>
+                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
+                                    title="Edit">
+                                    <i class="fa-solid fa-pencil fa-fw"></i>
+                                </button>
+
                             </div>
                         </td>
                     </tr>
@@ -235,28 +205,22 @@
                         </td>
                         <td class="px-6 py-2">
                             <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-terracotta text-white">Mineral</span>
+                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-terracotta text-white">GAL</span>
                         </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-brand-teal text-white">Active</span>
-                        </td>
+
                         <td class="px-6 py-2">
                             <div class="flex items-center justify-center space-x-2">
-                                <button class="view-btn text-brand-teal hover:text-brand-teal transition-colors"
-                                    title="View">
-                                    <i class="fa-solid fa-eye fa-fw"></i>
-                                </button>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked class="sr-only peer">
                                     <div
                                         class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
                                     </div>
                                 </label>
+                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
+                                    title="Edit">
+                                    <i class="fa-solid fa-pencil fa-fw"></i>
+                                </button>
+
                             </div>
                         </td>
                     </tr>
@@ -266,28 +230,22 @@
                         </td>
                         <td class="px-6 py-2">
                             <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-teal text-white">Oil</span>
+                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-teal text-white">BBL</span>
                         </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-brand-teal text-white">Active</span>
-                        </td>
+
                         <td class="px-6 py-2">
                             <div class="flex items-center justify-center space-x-2">
-                                <button class="view-btn text-brand-teal hover:text-brand-teal transition-colors"
-                                    title="View">
-                                    <i class="fa-solid fa-eye fa-fw"></i>
-                                </button>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked class="sr-only peer">
                                     <div
                                         class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
                                     </div>
                                 </label>
+                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
+                                    title="Edit">
+                                    <i class="fa-solid fa-pencil fa-fw"></i>
+                                </button>
+
                             </div>
                         </td>
                     </tr>
@@ -298,28 +256,22 @@
                         </td>
                         <td class="px-6 py-2">
                             <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-terracotta/60 text-white">Mineral</span>
+                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-terracotta/60 text-white">GAL</span>
                         </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-red-500 text-white">Inactive</span>
-                        </td>
+
                         <td class="px-6 py-2">
                             <div class="flex items-center justify-center space-x-2">
-                                <button class="view-btn text-brand-teal hover:text-brand-teal transition-colors"
-                                    title="View">
-                                    <i class="fa-solid fa-eye fa-fw"></i>
-                                </button>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" class="sr-only peer">
                                     <div
                                         class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
                                     </div>
                                 </label>
+                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
+                                    title="Edit">
+                                    <i class="fa-solid fa-pencil fa-fw"></i>
+                                </button>
+
                             </div>
                         </td>
                     </tr>
@@ -329,28 +281,22 @@
                         </td>
                         <td class="px-6 py-2">
                             <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#4A90A4] text-white">Gas</span>
+                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#4A90A4] text-white">MCF</span>
                         </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-brand-teal text-white">Active</span>
-                        </td>
+
                         <td class="px-6 py-2">
                             <div class="flex items-center justify-center space-x-2">
-                                <button class="view-btn text-brand-teal hover:text-brand-teal transition-colors"
-                                    title="View">
-                                    <i class="fa-solid fa-eye fa-fw"></i>
-                                </button>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked class="sr-only peer">
                                     <div
                                         class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
                                     </div>
                                 </label>
+                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
+                                    title="Edit">
+                                    <i class="fa-solid fa-pencil fa-fw"></i>
+                                </button>
+
                             </div>
                         </td>
                     </tr>
@@ -361,28 +307,22 @@
                         </td>
                         <td class="px-6 py-2">
                             <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#9E9E9E] text-white">Other</span>
+                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#9E9E9E] text-white">MCF</span>
                         </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-brand-teal text-white">Active</span>
-                        </td>
+
                         <td class="px-6 py-2">
                             <div class="flex items-center justify-center space-x-2">
-                                <button class="view-btn text-brand-teal hover:text-brand-teal transition-colors"
-                                    title="View">
-                                    <i class="fa-solid fa-eye fa-fw"></i>
-                                </button>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked class="sr-only peer">
                                     <div
                                         class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
                                     </div>
                                 </label>
+                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
+                                    title="Edit">
+                                    <i class="fa-solid fa-pencil fa-fw"></i>
+                                </button>
+
                             </div>
                         </td>
                     </tr>
@@ -392,28 +332,22 @@
                         </td>
                         <td class="px-6 py-2">
                             <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-terracotta text-white">Mineral</span>
+                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-terracotta text-white">GAL</span>
                         </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-brand-teal text-white">Active</span>
-                        </td>
+
                         <td class="px-6 py-2">
                             <div class="flex items-center justify-center space-x-2">
-                                <button class="view-btn text-brand-teal hover:text-brand-teal transition-colors"
-                                    title="View">
-                                    <i class="fa-solid fa-eye fa-fw"></i>
-                                </button>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked class="sr-only peer">
                                     <div
                                         class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
                                     </div>
                                 </label>
+                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
+                                    title="Edit">
+                                    <i class="fa-solid fa-pencil fa-fw"></i>
+                                </button>
+
                             </div>
                         </td>
                     </tr>
@@ -424,28 +358,22 @@
                         </td>
                         <td class="px-6 py-2">
                             <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#4A90A4] text-white">Gas</span>
+                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#4A90A4] text-white">MCF</span>
                         </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-brand-teal text-white">Active</span>
-                        </td>
+
                         <td class="px-6 py-2">
                             <div class="flex items-center justify-center space-x-2">
-                                <button class="view-btn text-brand-teal hover:text-brand-teal transition-colors"
-                                    title="View">
-                                    <i class="fa-solid fa-eye fa-fw"></i>
-                                </button>
-                                <button class="edit-btn text-brand-terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
                                 <label class="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked class="sr-only peer">
                                     <div
                                         class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
                                     </div>
                                 </label>
+                                <button class="edit-btn text-brand-terracotta hover:text-brand-teal transition-colors"
+                                    title="Edit">
+                                    <i class="fa-solid fa-pencil fa-fw"></i>
+                                </button>
+
                             </div>
                         </td>
                     </tr>
@@ -523,9 +451,10 @@
 </div>
 
 <div id="edit-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
-    <div class="bg-white rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] w-[480px] max-h-[90vh] overflow-hidden">
-        <div class="flex items-center justify-between px-6 py-2 border-b border-gray-200">
-            <h3 class="text-xl font-semibold text-gray-900">Edit Product</h3>
+    <div
+        class="bg-white rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] w-[480px] max-h-[90vh] overflow-hidden form-container">
+        <div class="flex items-center justify-between px-8 py-6 border-b border-gray-200">
+            <h3 class="text-2xl font-bold text-gray-900 tracking-tight">Edit Product</h3>
             <button class="modal-close text-gray-400 hover:text-gray-600 transition-colors">
                 <i class="fa-solid fa-xmark fa-lg"></i>
             </button>
@@ -534,85 +463,78 @@
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Product Name</label>
                 <input type="text" value="West Texas Intermediate Crude"
-                    class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
+                    class="px-[8px] rounded-[14px] w-full h-11 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
             </div>
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Type</label>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Unit</label>
                 <select
-                    class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
-                    <option selected>Oil</option>
-                    <option>Gas</option>
-                    <option>Mineral</option>
-                    <option>Other</option>
+                    class="px-[8px] rounded-[14px] w-full h-11 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
+                    <option selected>BBL</option>
+                    <option>MCF</option>
+                    <option>GAL</option>
                 </select>
             </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Status</label>
-                <div class="flex items-center space-x-3">
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" checked class="sr-only peer">
-                        <div
-                            class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
-                        </div>
-                    </label>
-                    <span class="text-sm text-gray-700">Active</span>
-                </div>
+
+        </div>
+
+
+
+        <div class="flex justify-end items-center space-x-4 pb-[10px] pr-[20px]">
+            <div class="relative">
+
+                <button
+                    class="modal-close bg-transparent border border-brand-teal text-brand-teal font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-teal/90 hover:text-white transition-colors text-sm">Cancel</button>
+                </button>
             </div>
-        </div>
-        <div class="flex items-center justify-end space-x-3 px-6 py-2 bg-gray-50 border-t border-gray-200">
             <button
-                class="modal-close px-4 py-2 text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">Cancel</button>
-            <button
-                class="save-product px-5 py-2 bg-brand-terracotta text-white rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm font-medium">Save
-                Changes</button>
+                class="save-product bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">
+                save Changes
+            </button>
         </div>
+
     </div>
 </div>
 
-<div id="add-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+<div id="add-modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 ">
     <div class="bg-white rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] w-[480px] max-h-[90vh] overflow-hidden">
-        <div class="flex items-center justify-between px-6 py-2 border-b border-gray-200">
-            <h3 class="text-xl font-semibold text-gray-900">Add Product</h3>
+        <div class="flex items-center justify-between px-8 py-6 border-b border-gray-200">
+            <h3 class="text-2xl font-bold text-gray-900 tracking-tight">Add Product</h3>
             <button class="modal-close text-gray-400 hover:text-gray-600 transition-colors">
                 <i class="fa-solid fa-xmark fa-lg"></i>
             </button>
         </div>
-        <div class="px-6 py-5 space-y-4">
+        <div class="px-8 py-8 space-y-4">
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Product Name <span
                         class="text-red-500">*</span></label>
                 <input type="text" placeholder="Enter product name"
-                    class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
+                    class="px-[8px] rounded-[14px] w-full h-11 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
             </div>
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Type</label>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Unit</label>
                 <select
-                    class="w-full h-11 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
-                    <option>Oil</option>
-                    <option>Gas</option>
-                    <option>Mineral</option>
-                    <option>Other</option>
+                    class="px-[8px] rounded-[14px] w-full h-11 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-sage text-sm">
+                    <option>BBL</option>
+                    <option>MCF</option>
+                    <option>GAL</option>
                 </select>
             </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Status</label>
-                <div class="flex items-center space-x-3">
-                    <label class="relative inline-flex items-center cursor-pointer">
-                        <input type="checkbox" checked class="sr-only peer">
-                        <div
-                            class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
-                        </div>
-                    </label>
-                    <span class="text-sm text-gray-700">Active</span>
-                </div>
+
+
+
+
+        <div class="flex justify-end items-center space-x-4 pb-[10px] pr-[20px]">
+            <div class="relative">
+
+                <button
+                    class="modal-close bg-transparent border border-brand-teal text-brand-teal font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-teal/90 hover:text-white transition-colors text-sm">Cancel</button>
+                </button>
             </div>
-        </div>
-        <div class="flex items-center justify-end space-x-3 px-6 py-2 bg-gray-50 border-t border-gray-200">
-            <button
-                class="modal-close px-4 py-2 text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">Cancel</button>
-            <button
-                class="add-product-save px-5 py-2 bg-brand-terracotta text-white rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm font-medium">Add
-                Product</button>
+            <button id="create-mapping-btn"
+                class="bg-brand-terracotta text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-terracotta/90 transition-colors text-sm">
+                Add
+                Product
+            </button>
         </div>
     </div>
 </div>
@@ -757,27 +679,26 @@
         });
     });
 
-const toggleCheckbox = document.getElementById("status-toggle");
-const productRows = document.querySelectorAll(".product-row");
-const toggle = document.querySelector(".in-active-btn");
+    const toggleCheckbox = document.getElementById("status-toggle");
+    const productRows = document.querySelectorAll(".product-row");
+    const toggle = document.querySelector(".in-active-btn");
 
-  // Default: show only active rows
-  productRows.forEach(row => {
-    row.style.display = row.dataset.status === "active" ? "" : "none";
-  });
-
-  toggleCheckbox.addEventListener("change", () => {
-    if (toggleCheckbox.checked) {
-      // Show both active and inactive rows
-      productRows.forEach(row => {
-        row.style.display = ""; // show all rows
-      });
-    } else {
-      // Show only active rows
-      productRows.forEach(row => {
+    // Default: show only active rows
+    productRows.forEach(row => {
         row.style.display = row.dataset.status === "active" ? "" : "none";
-      });
-    }
-  });
+    });
 
+    toggleCheckbox.addEventListener("change", () => {
+        if (toggleCheckbox.checked) {
+            // Show both active and inactive rows
+            productRows.forEach(row => {
+                row.style.display = ""; // show all rows
+            });
+        } else {
+            // Show only active rows
+            productRows.forEach(row => {
+                row.style.display = row.dataset.status === "active" ? "" : "none";
+            });
+        }
+    });
 </script>

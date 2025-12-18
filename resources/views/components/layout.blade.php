@@ -205,7 +205,7 @@
                     </li>
 
                     {{-- Products --}}
-                    {{-- <li>
+                    <li>
                         <a href="{{ route('admin.product') }}"
                             class="flex items-center h-12 rounded-xl mx-2 border-l-4 hover:bg-gray-100 {{ navActive('admin.product') }}">
                             <span class="w-12 flex items-center justify-center flex-shrink-0">
@@ -213,7 +213,7 @@
                             </span>
                             <span class="nav-text text-sm font-medium whitespace-nowrap">Products</span>
                         </a>
-                    </li> --}}
+                    </li>
 
                     {{-- Invoices --}}
                     <li>
