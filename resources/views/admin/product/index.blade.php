@@ -71,7 +71,7 @@
                 <tbody id="products-table-body" class="divide-y divide-gray-200">
                     <tr class="hover:bg-brand-sage/10 transition-colors product-row" data-status="active">
                         <td class="px-6 py-2">
-                            <span class="text-sm font-medium text-gray-900">West Texas Intermediate Crude</span>
+                            <span class="text-sm font-medium text-gray-900">Gas</span>
                         </td>
                         <td class="px-6 py-2">
                             <span
@@ -97,7 +97,7 @@
                     <tr class="bg-brand-sage/5 hover:bg-brand-sage/10 transition-colors product-row"
                         data-status="active">
                         <td class="px-6 py-2">
-                            <span class="text-sm font-medium text-gray-900">Natural Gas Liquid</span>
+                            <span class="text-sm font-medium text-gray-900">LNG</span>
                         </td>
                         <td class="px-6 py-2">
                             <span
@@ -122,7 +122,7 @@
                     </tr>
                     <tr class="hover:bg-brand-sage/10 transition-colors product-row" data-status="active">
                         <td class="px-6 py-2">
-                            <span class="text-sm font-medium text-gray-900">Copper Ore Grade A</span>
+                            <span class="text-sm font-medium text-gray-900">Oil</span>
                         </td>
                         <td class="px-6 py-2">
                             <span
@@ -148,7 +148,7 @@
                     <tr class="bg-brand-sage/5 hover:bg-brand-sage/10 transition-colors product-row"
                         data-status="inactive">
                         <td class="px-6 py-2">
-                            <span class="text-sm font-medium text-gray-900 opacity-60">Brent Crude Oil</span>
+                            <span class="text-sm font-medium text-gray-900 opacity-60">Product</span>
                         </td>
                         <td class="px-6 py-2">
                             <span
@@ -171,211 +171,7 @@
 
                             </div>
                         </td>
-                    </tr>
-                    <tr class="hover:bg-brand-sage/10 transition-colors product-row" data-status="active">
-                        <td class="px-6 py-2">
-                            <span class="text-sm font-medium text-gray-900">Propane Gas</span>
-                        </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#4A90A4] text-white">MCF</span>
-                        </td>
-
-                        <td class="px-6 py-2">
-                            <div class="flex items-center justify-center space-x-2">
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" checked class="sr-only peer">
-                                    <div
-                                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
-                                    </div>
-                                </label>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="bg-brand-sage/5 hover:bg-brand-sage/10 transition-colors product-row"
-                        data-status="active">
-                        <td class="px-6 py-2">
-                            <span class="text-sm font-medium text-gray-900">Gold Bullion</span>
-                        </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-terracotta text-white">GAL</span>
-                        </td>
-
-                        <td class="px-6 py-2">
-                            <div class="flex items-center justify-center space-x-2">
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" checked class="sr-only peer">
-                                    <div
-                                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
-                                    </div>
-                                </label>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-brand-sage/10 transition-colors product-row" data-status="active">
-                        <td class="px-6 py-2">
-                            <span class="text-sm font-medium text-gray-900">Diesel Fuel #2</span>
-                        </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-teal text-white">BBL</span>
-                        </td>
-
-                        <td class="px-6 py-2">
-                            <div class="flex items-center justify-center space-x-2">
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" checked class="sr-only peer">
-                                    <div
-                                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
-                                    </div>
-                                </label>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="bg-brand-sage/5 hover:bg-brand-sage/10 transition-colors product-row"
-                        data-status="inactive">
-                        <td class="px-6 py-2">
-                            <span class="text-sm font-medium text-gray-900 opacity-60">Silver Ore</span>
-                        </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-terracotta/60 text-white">GAL</span>
-                        </td>
-
-                        <td class="px-6 py-2">
-                            <div class="flex items-center justify-center space-x-2">
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" class="sr-only peer">
-                                    <div
-                                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
-                                    </div>
-                                </label>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-brand-sage/10 transition-colors product-row" data-status="active">
-                        <td class="px-6 py-2">
-                            <span class="text-sm font-medium text-gray-900">Methane Gas</span>
-                        </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#4A90A4] text-white">MCF</span>
-                        </td>
-
-                        <td class="px-6 py-2">
-                            <div class="flex items-center justify-center space-x-2">
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" checked class="sr-only peer">
-                                    <div
-                                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
-                                    </div>
-                                </label>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="bg-brand-sage/5 hover:bg-brand-sage/10 transition-colors product-row"
-                        data-status="active">
-                        <td class="px-6 py-2">
-                            <span class="text-sm font-medium text-gray-900">Hydraulic Fracturing Fluid</span>
-                        </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#9E9E9E] text-white">MCF</span>
-                        </td>
-
-                        <td class="px-6 py-2">
-                            <div class="flex items-center justify-center space-x-2">
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" checked class="sr-only peer">
-                                    <div
-                                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
-                                    </div>
-                                </label>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-brand-sage/10 transition-colors product-row" data-status="active">
-                        <td class="px-6 py-2">
-                            <span class="text-sm font-medium text-gray-900">Platinum Concentrate</span>
-                        </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-terracotta text-white">GAL</span>
-                        </td>
-
-                        <td class="px-6 py-2">
-                            <div class="flex items-center justify-center space-x-2">
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" checked class="sr-only peer">
-                                    <div
-                                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
-                                    </div>
-                                </label>
-                                <button class="edit-btn text-brand=terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="bg-brand-sage/5 hover:bg-brand-sage/10 transition-colors product-row"
-                        data-status="active">
-                        <td class="px-6 py-2">
-                            <span class="text-sm font-medium text-gray-900">Butane Gas</span>
-                        </td>
-                        <td class="px-6 py-2">
-                            <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#4A90A4] text-white">MCF</span>
-                        </td>
-
-                        <td class="px-6 py-2">
-                            <div class="flex items-center justify-center space-x-2">
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" checked class="sr-only peer">
-                                    <div
-                                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-teal">
-                                    </div>
-                                </label>
-                                <button class="edit-btn text-brand-terracotta hover:text-brand-teal transition-colors"
-                                    title="Edit">
-                                    <i class="fa-solid fa-pencil fa-fw"></i>
-                                </button>
-
-                            </div>
-                        </td>
-                    </tr>
+                    </tr> 
                 </tbody>
             </table>
         </div>

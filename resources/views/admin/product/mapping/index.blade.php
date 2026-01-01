@@ -9,7 +9,7 @@
                  'Sales' => '4020-01 RI-Oil Sales',
                  'Tax' => '5020-01 RI-Oil Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 2,
@@ -18,7 +18,7 @@
                  'Sales' => '4020-02 RI-Gas Sales',
                  'Tax' => '5020-02 RI-Gas Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 3,
@@ -27,7 +27,7 @@
                  'Sales' => '4020-03 RI-LNG Sales',
                  'Tax' => '5020-03 RI-LNG Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 4,
@@ -54,7 +54,7 @@
                  'Sales' => '4020-06 ORRI-Gas Sales',
                  'Tax' => '5020-06 ORRI-Gas Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 7,
@@ -63,7 +63,7 @@
                  'Sales' => '4020-07 ORRI-LNG Sales',
                  'Tax' => '5020-07 ORRI-LNG Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 8,
@@ -72,7 +72,7 @@
                  'Sales' => '4020-08 ORRI-Product Sales',
                  'Tax' => '5020-08 ORRI-Product Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 9,
@@ -90,7 +90,7 @@
                  'Sales' => '4020-10 OR-Gas Sales',
                  'Tax' => '5020-10 OR-Gas Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 11,
@@ -99,7 +99,7 @@
                  'Sales' => '4020-11 OR-LNG Sales',
                  'Tax' => '5020-11 OR-LNG Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 12,
@@ -108,7 +108,7 @@
                  'Sales' => '4020-12 OR-Product Sales',
                  'Tax' => '5020-12 OR-Product Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 13,
@@ -117,7 +117,7 @@
                  'Sales' => '4020-13 WI-Oil Sales',
                  'Tax' => '5020-13 WI-Oil Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 14,
@@ -126,7 +126,7 @@
                  'Sales' => '4020-14 WI-Gas Sales',
                  'Tax' => '5020-14 WI-Gas Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 15,
@@ -135,7 +135,7 @@
                  'Sales' => '4020-15 WI-LNG Sales',
                  'Tax' => '5020-15 WI-LNG Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 16,
@@ -144,7 +144,7 @@
                  'Sales' => '4020-16 WI-Product Sales',
                  'Tax' => '5020-16 WI-Product Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 17,
@@ -153,7 +153,7 @@
                  'Sales' => '4020-17-MISC - Oil Sales',
                  'Tax' => '4020-17-MISC - Oil Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 18,
@@ -162,7 +162,7 @@
                  'Sales' => '4020-18 MISC - Gas Sales',
                  'Tax' => '5020-18 MISC - Gas Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 19,
@@ -171,7 +171,7 @@
                  'Sales' => '4020-19-MISC - LNG Sales',
                  'Tax' => '5020-19-MISC - LNG Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
              [
                  's.no' => 20,
@@ -180,7 +180,7 @@
                  'Sales' => '4020-20 MISC - Product Sales',
                  'Tax' => '5020-20 MISC - Product Tax',
                  'status' => 'Active',
-                 'qbo_mapped' => true,
+                  
              ],
          ];
      @endphp
@@ -241,8 +241,7 @@
 
                          <th class="p-3   text-left text-xs font-semibold text-gray-600 uppercase tracking wie">
                              Tax</th>
-                         <th class="p-3 text-left text-xs font-semibold text-gray-600 uppercase tracking wie">
-                             QBO Status</th>
+                      
                          <th class="p-3 text-left text-xs font-semibold text-gray-600 uppercase tracking wie">
                              Actions</th>
                      </tr>
@@ -267,13 +266,7 @@
                              </td>
 
 
-                             <td class="px-3 py-1">
-                                 @if ($mapping['qbo_mapped'])
-                                     <i class="fa-solid fa-circle-check text-green-700 text-lg"></i>
-                                 @else
-                                     <i class="fa-solid fa-circle-xmark text-red-700 text-xl"></i>
-                                 @endif
-                             </td>
+                           
                              <td class="px-3 py-1 flex items-center gap-3">
                                  <i class="fa-solid fa-pencil text-gray-400 hover:text-gray-600 cursor-pointer"></i>
                                  <label class="relative inline-flex items-center cursor-pointer">
